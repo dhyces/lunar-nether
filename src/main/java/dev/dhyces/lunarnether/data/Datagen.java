@@ -1,5 +1,6 @@
 package dev.dhyces.lunarnether.data;
 
+import dev.dhyces.biomeextensions.ApiAccess;
 import dev.dhyces.lunarnether.LunarNether;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
@@ -28,7 +29,8 @@ public class Datagen {
         RegistrySetBuilder builder = new RegistrySetBuilder()
                 .add(Registries.CONFIGURED_FEATURE, ConfiguredFeaturesGen::run)
                 .add(Registries.PLACED_FEATURE, PlacedFeaturesGen::run)
-                .add(Registries.BIOME, BiomeGen::run);
+                .add(Registries.BIOME, BiomeGen::run)
+                .add(ApiAccess.EXTENSION_REGISTRY_KEY, BiomeExtensionGen::run);
 
         generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, lookupProvider, builder, Set.of(LunarNether.MODID)));
     }
