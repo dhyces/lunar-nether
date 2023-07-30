@@ -7,9 +7,8 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +23,7 @@ public class Datagen {
     static void datagen(final GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
+        ExistingFileHelper fileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         RegistrySetBuilder builder = new RegistrySetBuilder()
@@ -33,5 +33,8 @@ public class Datagen {
                 .add(ApiAccess.EXTENSION_REGISTRY_KEY, BiomeExtensionGen::run);
 
         generator.addProvider(event.includeServer(), new DatapackBuiltinEntriesProvider(packOutput, lookupProvider, builder, Set.of(LunarNether.MODID)));
+
+        generator.addProvider(event.includeClient(), new BlockStateGen(packOutput, fileHelper));
+        generator.addProvider(event.includeClient(), new ItemModelGen(packOutput, fileHelper));
     }
 }

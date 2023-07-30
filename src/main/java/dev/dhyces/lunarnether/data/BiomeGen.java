@@ -18,7 +18,9 @@ public class BiomeGen {
 
 
     static void run(BootstapContext<Biome> context) {
+        context.register(OUTROCKS, outrocks());
         context.register(ASHEN_PLAINS, ashenPlains());
+        context.register(ICY_BARRENS, icyBarrens());
     }
 
     private static Biome outrocks() {
@@ -26,7 +28,7 @@ public class BiomeGen {
                 .build();
         BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
                 .skyColor(0)
-                .fogColor(0x333333)
+                .fogColor(0xFFFFFF)
                 .waterColor(0x3F76E4)
                 .waterFogColor(0x050533)
                 .build();
@@ -47,7 +49,7 @@ public class BiomeGen {
                 .build();
         BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
                 .skyColor(0)
-                .fogColor(0x333333)
+                .fogColor(0xFFFFFF)
                 .waterColor(0x3F76E4)
                 .waterFogColor(0x050533)
                 .build();
@@ -68,7 +70,7 @@ public class BiomeGen {
                 .build();
         BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
                 .skyColor(0)
-                .fogColor(0x333333)
+                .fogColor(0xFFFFFF)
                 .waterColor(0x3F76E4)
                 .waterFogColor(0x050533)
                 .build();

@@ -1,7 +1,6 @@
 package dev.dhyces.lunarnether.data;
 
 import dev.dhyces.lunarnether.LunarNether;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
@@ -19,8 +18,8 @@ public class PlacedFeaturesGen {
 
     static void run(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> getter = context.lookup(Registries.CONFIGURED_FEATURE);
-        context.register(BASALT_MOUND, new PlacedFeature(getter.getOrThrow(ConfiguredFeaturesGen.BASALT_MOUND), List.of(RarityFilter.onAverageOnceEvery(10), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING), RandomOffsetPlacement.horizontal(UniformInt.of(0, 8)), BiomeFilter.biome())));
-        context.register(OBSIDIAN_MOUND, new PlacedFeature(getter.getOrThrow(ConfiguredFeaturesGen.OBSIDIAN_MOUND), List.of(RarityFilter.onAverageOnceEvery(10), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING), RandomOffsetPlacement.horizontal(UniformInt.of(0, 8)), BiomeFilter.biome())));
+        context.register(BASALT_MOUND, new PlacedFeature(getter.getOrThrow(ConfiguredFeaturesGen.BASALT_MOUND), List.of(CountPlacement.of(10), RandomOffsetPlacement.horizontal(UniformInt.of(0, 8)), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING), BiomeFilter.biome())));
+        context.register(OBSIDIAN_MOUND, new PlacedFeature(getter.getOrThrow(ConfiguredFeaturesGen.OBSIDIAN_MOUND), List.of(CountPlacement.of(10), RandomOffsetPlacement.horizontal(UniformInt.of(0, 8)), HeightmapPlacement.onHeightmap(Heightmap.Types.MOTION_BLOCKING), BiomeFilter.biome())));
     }
 
     private static ResourceKey<PlacedFeature> key(String id) {
