@@ -3,7 +3,7 @@
   "generator": {
     "type": "minecraft:noise",
     "biome_source": {
-      "type": "catbopthings:heighted",
+      "type": "lunarnether:heighted",
       "fallback": {
         "type": "minecraft:multi_noise",
         "biomes": [
@@ -76,10 +76,34 @@
             "type": "minecraft:multi_noise",
             "biomes": [
               {
-                "biome": "catbopthings:nether_surface",
+                "biome": "lunarnether:outrocks",
                 "parameters": {
                   "continentalness": 0.0,
                   "depth": 0.0,
+                  "erosion": 0.0,
+                  "humidity": 0.0,
+                  "offset": 0.0,
+                  "temperature": 0.0,
+                  "weirdness": 0.0
+                }
+              },
+              {
+                "biome": "lunarnether:ashen_plains",
+                "parameters": {
+                  "continentalness": 0.0,
+                  "depth": 0.0,
+                  "erosion": 0.1,
+                  "humidity": 0.0,
+                  "offset": 0.0,
+                  "temperature": 0.2,
+                  "weirdness": 0.0
+                }
+              },
+              {
+                "biome": "lunarnether:icy_barrens",
+                "parameters": {
+                  "continentalness": 0.0,
+                  "depth": 0.2,
                   "erosion": 0.0,
                   "humidity": 0.0,
                   "offset": 0.0,

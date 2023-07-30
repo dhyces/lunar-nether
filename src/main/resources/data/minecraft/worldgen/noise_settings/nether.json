@@ -159,7 +159,7 @@
               {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "catbopthings:luna_rock"
+                  "Name": "lunarnether:luna_rock"
                 }
               },
               {
