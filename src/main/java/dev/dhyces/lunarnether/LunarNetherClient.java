@@ -2,17 +2,25 @@ package dev.dhyces.lunarnether;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Axis;
+import dev.dhyces.lunarnether.data.BiomeGen;
 import net.minecraft.client.Camera;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.joml.Matrix4f;
+import org.joml.Vector3f;
+
+import java.util.Optional;
 
 public final class LunarNetherClient {
     static void register(IEventBus modBus, IEventBus forgeBus) {
@@ -73,12 +81,33 @@ public final class LunarNetherClient {
                 ShaderInstance shaderinstance = RenderSystem.getShader();
                 RenderSystem.setShaderColor(0, 0, 0, 1);
                 poseStack.pushPose();
+                poseStack.pushPose();
                 topHalfBuffer.bind();
                 topHalfBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
+                poseStack.mulPose(Axis.YP.rotationDegrees(-180f));
+                topHalfBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
                 VertexBuffer.unbind();
-                bottomHalfBuffer.bind();
-                bottomHalfBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
-                VertexBuffer.unbind();
+                poseStack.popPose();
+
+                poseStack.pushPose();
+                RenderSystem.setShader(GameRenderer::getPositionColorTexShader);
+                RenderSystem.setShaderTexture(0, LunarNether.id("textures/environment/overworld_phases.png"));
+                Tesselator tesselator = Tesselator.getInstance();
+                BufferBuilder builder = tesselator.getBuilder();
+
+                float size = 20f;
+                float uvWidth = 32f / 128f;
+                float uvHeight = 32f / 64f;
+                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
+                Matrix4f pose = poseStack.last().pose();
+                builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR_TEX);
+                builder.vertex(pose, -size, 40, size).color(0xFFFFFFFF).uv(0, 0).endVertex();
+                builder.vertex(pose, size, 40, size).color(0xFFFFFFFF).uv(1, 0).endVertex();
+                builder.vertex(pose, size, 40, -size).color(0xFFFFFFFF).uv(1, 1).endVertex();
+                builder.vertex(pose, -size, 40, -size).color(0xFFFFFFFF).uv(0, 1).endVertex();
+                tesselator.end();
+                poseStack.popPose();
+
                 poseStack.popPose();
                 RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
                 return true;
