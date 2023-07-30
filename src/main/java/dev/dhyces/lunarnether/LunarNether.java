@@ -2,6 +2,7 @@ package dev.dhyces.lunarnether;
 
 import dev.dhyces.lunarnether.registry.ModBiomeSources;
 import dev.dhyces.lunarnether.registry.ModBlocks;
+import dev.dhyces.lunarnether.registry.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -21,6 +22,7 @@ public class LunarNether {
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
         ModBlocks.REGISTRY.register(modBus);
+        ModItems.REGISTRY.register(modBus);
         ModBiomeSources.REGISTRY.register(modBus);
 
         if (FMLLoader.getDist().isClient()) {

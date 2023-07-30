@@ -11,5 +11,5 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModBlocks {
     public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(Registries.BLOCK, LunarNether.MODID);
 
-    public static final RegistryObject<Block> LUNA_ROCK = REGISTRY.register("luna_rock", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE)));
+    public static final RegistryObject<Block> LUNA_ROCK = REGISTRY.register("luna_rock", () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE)));
 }
