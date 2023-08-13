@@ -3,6 +3,7 @@ package dev.dhyces.lunarnether;
 import dev.dhyces.lunarnether.registry.ModBiomeSources;
 import dev.dhyces.lunarnether.registry.ModBlocks;
 import dev.dhyces.lunarnether.registry.ModItems;
+import dev.dhyces.lunarnether.registry.ModParticleTypes;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -23,6 +24,7 @@ public class LunarNether {
 
         ModBlocks.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
+        ModParticleTypes.REGISTRY.register(modBus);
         ModBiomeSources.REGISTRY.register(modBus);
 
         if (FMLLoader.getDist().isClient()) {

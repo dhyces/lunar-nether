@@ -2,7 +2,15 @@
   "carvers": {},
   "downfall": 0.0,
   "effects": {
-    "fog_color": 16777215,
+    "fog_color": 2236962,
+    "particle": {
+      "options": {
+        "type": "lunarnether:colored_ash",
+        "max": "#666666",
+        "min": "#111111"
+      },
+      "probability": 0.12
+    },
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011
@@ -20,5 +28,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.3
+  "temperature": 0.6
 }

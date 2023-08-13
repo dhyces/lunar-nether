@@ -145,50 +145,56 @@
           "add_stone_depth": false
         },
         "then_run": {
-          "type": "minecraft:condition",
-          "if_true": {
-            "type": "minecraft:stone_depth",
-            "add_surface_depth": true,
-            "offset": 1,
-            "secondary_depth_range": 0,
-            "surface_type": "floor"
-          },
-          "then_run": {
-            "type": "minecraft:sequence",
-            "sequence": [
-              {
-                "type": "minecraft:block",
-                "result_state": {
-                  "Name": "lunarnether:luna_rock"
-                }
+          "type": "minecraft:sequence",
+          "sequence": [
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:biome",
+                "biome_is": [
+                  "lunarnether:ashen_plains"
+                ]
               },
-              {
+              "then_run": {
                 "type": "minecraft:condition",
                 "if_true": {
-                  "type": "minecraft:biome",
-                  "biome_is": [
-                    "lunarnether:ashen_plains"
-                  ]
+                  "type": "minecraft:stone_depth",
+                  "add_surface_depth": false,
+                  "offset": 1,
+                  "secondary_depth_range": 0,
+                  "surface_type": "floor"
                 },
                 "then_run": {
-                  "type": "minecraft:condition",
-                  "if_true": {
-                    "type": "minecraft:stone_depth",
-                    "add_surface_depth": false,
-                    "offset": 1,
-                    "secondary_depth_range": 0,
-                    "surface_type": "floor"
-                  },
-                  "then_run": {
-                    "type": "minecraft:block",
-                    "result_state": {
-                      "Name": "minecraft:bedrock"
-                    }
+                  "type": "minecraft:block",
+                  "result_state": {
+                    "Name": "lunarnether:ash_block"
                   }
                 }
               }
-            ]
-          }
+            },
+            {
+              "type": "minecraft:condition",
+              "if_true": {
+                "type": "minecraft:stone_depth",
+                "add_surface_depth": false,
+                "offset": 0,
+                "secondary_depth_range": 0,
+                "surface_type": "floor"
+              },
+              "then_run": {
+                "type": "minecraft:block",
+                "result_state": {
+                  "Name": "lunarnether:lunar_dust"
+                }
+              }
+            },
+            {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "lunarnether:lunar_stone"
+              }
+            }
+          ]
         }
       },
       {

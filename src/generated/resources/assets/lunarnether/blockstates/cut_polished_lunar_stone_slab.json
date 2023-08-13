@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lunarnether:block/cut_polished_lunar_stone_slab"
+    },
+    "type=double": {
+      "model": "lunarnether:block/cut_polished_lunar_stone"
+    },
+    "type=top": {
+      "model": "lunarnether:block/cut_polished_lunar_stone_slab_top"
+    }
+  }
+}

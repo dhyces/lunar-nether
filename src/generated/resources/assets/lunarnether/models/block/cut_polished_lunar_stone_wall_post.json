@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_wall_post",
+  "textures": {
+    "wall": "lunarnether:block/cut_polished_lunar_stone"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/wall_inventory",
+  "textures": {
+    "wall": "lunarnether:block/polished_lunar_stone"
+  }
+}

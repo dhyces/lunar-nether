@@ -1,0 +1,78 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "lunarnether:block/lunar_stone"
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 90
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 180
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 270
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/lunar_stone",
+        "x": 270,
+        "y": 270
+      }
+    ]
+  }
+}

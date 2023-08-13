@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lunarnether:block/lunar_stone_slab"
+    },
+    "type=double": {
+      "model": "lunarnether:block/lunar_stone"
+    },
+    "type=top": {
+      "model": "lunarnether:block/lunar_stone_slab_top"
+    }
+  }
+}
