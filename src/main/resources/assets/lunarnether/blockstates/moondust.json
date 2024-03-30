@@ -1,0 +1,78 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "lunarnether:block/moondust"
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 90
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 180
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 270
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 90,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 180,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 270,
+        "y": 90
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 90,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 180,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 270,
+        "y": 180
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 90,
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 180,
+        "y": 270
+      },
+      {
+        "model": "lunarnether:block/moondust",
+        "x": 270,
+        "y": 270
+      }
+    ]
+  }
+}
