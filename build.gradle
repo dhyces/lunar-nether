@@ -87,11 +87,6 @@ repositories {
 dependencies {
     minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
 
-    compileOnly fg.deobf("dev.dhyces.biomeextensions:biomeextensions-${minecraft_version}-forge-api:${dbe_version}")
-    runtimeOnly(jarJar(fg.deobf("dev.dhyces.biomeextensions:biomeextensions-${minecraft_version}-forge:${dbe_version}")) {
-        jarJar.ranged(it, "[1.0.0, 2.0.0)")
-    })
-
     implementation(fg.deobf("curse.maven:liveworldgen-887971:${liveworldgen_version}"))
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
