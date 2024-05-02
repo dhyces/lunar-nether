@@ -98,7 +98,7 @@ public class BlockStateGen extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        simpleBlock(ModBlocks.LUNAR_DUST.get());
+//        simpleBlock(ModBlocks.LUNAR_DUST.get());
         simpleBlockItem(ModBlocks.LUNAR_DUST.get());
         randomlyRotated(ModBlocks.LUNAR_STONE.get());
         simpleBlockItem(ModBlocks.LUNAR_STONE.get());
