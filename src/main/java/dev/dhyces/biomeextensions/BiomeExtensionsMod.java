@@ -10,7 +10,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 
-@Mod(BiomeExtensionsMod.MODID)
 public class BiomeExtensionsMod {
     public static final String MODID = "biomeextensions";
     public static ResourceLocation id(String id) {
@@ -19,7 +18,7 @@ public class BiomeExtensionsMod {
 
     public static final ApiContainer API_CONTAINER = new ApiContainer();
 
-    public BiomeExtensionsMod() {
+    public static init() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
