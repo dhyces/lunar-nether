@@ -18,7 +18,7 @@ public class BiomeExtensionsMod {
 
     public static final ApiContainer API_CONTAINER = new ApiContainer();
 
-    public static init() {
+    public static void init() {
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
