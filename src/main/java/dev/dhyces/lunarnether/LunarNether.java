@@ -1,5 +1,6 @@
 package dev.dhyces.lunarnether;
 
+import dev.dhyces.biomeextensions.BiomeExtensionsMod;
 import dev.dhyces.lunarnether.registry.ModBiomeSources;
 import dev.dhyces.lunarnether.registry.ModBlocks;
 import dev.dhyces.lunarnether.registry.ModItems;
@@ -19,6 +20,7 @@ public class LunarNether {
     }
 
     public LunarNether() {
+        BiomeExtensionsMod.init();
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
         IEventBus forgeBus = MinecraftForge.EVENT_BUS;
 
