@@ -92,6 +92,12 @@ dependencies {
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
+mixin {
+    add sourceSets.main, "biomeextensions.refmap.json"
+
+    config 'biomeextensions.mixins.json'
+}
+
 tasks.withType(ProcessResources).configureEach {
     exclude("/.cache")
     var replaceProperties = [
