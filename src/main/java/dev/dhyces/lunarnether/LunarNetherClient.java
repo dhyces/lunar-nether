@@ -56,7 +56,7 @@ public final class LunarNetherClient {
                 RenderSystem.setShader(GameRenderer::getPositionShader);
                 builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
                 builder.vertex(0, 16, 0).endVertex();
-
+                // TODO: Fix this
                 for (int i = -180; i <= 180; i+=45) {
                     builder.vertex(512f * Mth.cos(i * Mth.DEG_TO_RAD), 16, 512f * Mth.sin(i * Mth.DEG_TO_RAD)).endVertex();
                 }
@@ -66,10 +66,10 @@ public final class LunarNetherClient {
                 VertexBuffer.unbind();
 
                 builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
-                builder.vertex(0, -16, 0).endVertex();
+                builder.vertex(0, -32, 0).endVertex();
 
                 for (int i = -180; i <= 180; i+=45) {
-                    builder.vertex(-512f * Mth.cos(i * Mth.DEG_TO_RAD), -16, 512f * Mth.sin(i * Mth.DEG_TO_RAD)).endVertex();
+                    builder.vertex(-512f * Mth.cos(i * Mth.DEG_TO_RAD), -32, 512f * Mth.sin(i * Mth.DEG_TO_RAD)).endVertex();
                 }
 
                 bottomHalfBuffer.bind();

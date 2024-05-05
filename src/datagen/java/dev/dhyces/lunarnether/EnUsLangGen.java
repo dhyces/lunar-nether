@@ -25,5 +25,9 @@ public class EnUsLangGen extends LanguageProvider {
         add(ModBlocks.CUT_POLISHED_LUNAR_STONE_SLAB.get(), "Cut Polished Lunar Stone Slab");
         add(ModBlocks.CUT_POLISHED_LUNAR_STONE_WALL.get(), "Cut Polished Lunar Stone Wall");
         add(ModBlocks.ASH_BLOCK.get(), "Ash Block");
+        add(ModBlocks.ILMENITE_ORE.get(), "Ilmenite Ore");
+        add(ModBlocks.RAW_ILMENITE_BLOCK.get(), "Raw Ilmenite Block");
+
+
     }
 }

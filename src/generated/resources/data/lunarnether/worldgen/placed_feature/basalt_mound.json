@@ -2,23 +2,15 @@
   "feature": "lunarnether:basalt_mound",
   "placement": [
     {
-      "type": "minecraft:count",
-      "count": 10
+      "type": "minecraft:rarity_filter",
+      "chance": 250
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": {
-        "type": "minecraft:uniform",
-        "value": {
-          "max_inclusive": 8,
-          "min_inclusive": 0
-        }
-      },
-      "y_spread": 0
+      "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:heightmap",
-      "heightmap": "MOTION_BLOCKING"
+      "heightmap": "WORLD_SURFACE_WG"
     },
     {
       "type": "minecraft:biome"

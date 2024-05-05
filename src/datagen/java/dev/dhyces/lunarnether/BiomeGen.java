@@ -4,18 +4,25 @@ import dev.dhyces.lunarnether.particle.ColorRangeParticleOption;
 import dev.dhyces.lunarnether.registry.BiomeKeys;
 import dev.dhyces.lunarnether.registry.ModParticleTypes;
 import dev.dhyces.lunarnether.util.ColorUtil;
+import net.minecraft.core.HolderGetter;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.world.level.biome.*;
+import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.carver.ConfiguredWorldCarver;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 
 public class BiomeGen {
     static void run(BootstapContext<Biome> context) {
-        context.register(BiomeKeys.OUTROCKS, outrocks());
-        context.register(BiomeKeys.ASHEN_PLAINS, ashenPlains());
-        context.register(BiomeKeys.ICY_BARRENS, icyBarrens());
+        HolderGetter<ConfiguredWorldCarver<?>> carverGetter = context.lookup(Registries.CONFIGURED_CARVER);
+        HolderGetter<PlacedFeature> placedFeatureGetter = context.lookup(Registries.PLACED_FEATURE);
+        context.register(BiomeKeys.OUTROCKS, outrocks(placedFeatureGetter, carverGetter));
     }
 
-    private static Biome outrocks() {
-        BiomeGenerationSettings genSettings = new BiomeGenerationSettings.PlainBuilder()
+    private static Biome outrocks(HolderGetter<PlacedFeature> placedFeatureGetter, HolderGetter<ConfiguredWorldCarver<?>> carverGetter) {
+        BiomeGenerationSettings genSettings = new BiomeGenerationSettings.Builder(placedFeatureGetter, carverGetter)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeaturesGen.BASALT_MOUND)
+                .addFeature(GenerationStep.Decoration.VEGETAL_DECORATION, PlacedFeaturesGen.OBSIDIAN_MOUND)
                 .build();
         BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
                 .skyColor(0)
@@ -35,46 +42,6 @@ public class BiomeGen {
                 .build();
     }
 
-    private static Biome ashenPlains() {
-        BiomeGenerationSettings genSettings = new BiomeGenerationSettings.PlainBuilder()
-                .build();
-        BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
-                .skyColor(0)
-                .fogColor(0x222222)
-                .waterColor(0x3F76E4)
-                .waterFogColor(0x050533)
-                .ambientParticle(new AmbientParticleSettings(new ColorRangeParticleOption(ModParticleTypes.COLORED_ASH.get(), 0x111111, 0x666666, ColorUtil.ColorSpace.RGB), 0.12f))
-                .build();
-        MobSpawnSettings spawnSettings = MobSpawnSettings.EMPTY;
 
-        return new Biome.BiomeBuilder()
-                .downfall(0)
-                .hasPrecipitation(false)
-                .temperature(0.6f)
-                .generationSettings(genSettings)
-                .specialEffects(specialEffects)
-                .mobSpawnSettings(spawnSettings)
-                .build();
-    }
 
-    private static Biome icyBarrens() {
-        BiomeGenerationSettings genSettings = new BiomeGenerationSettings.PlainBuilder()
-                .build();
-        BiomeSpecialEffects specialEffects = new BiomeSpecialEffects.Builder()
-                .skyColor(0)
-                .fogColor(0xFFFFFF)
-                .waterColor(0x3F76E4)
-                .waterFogColor(0x050533)
-                .build();
-        MobSpawnSettings spawnSettings = MobSpawnSettings.EMPTY;
-
-        return new Biome.BiomeBuilder()
-                .downfall(0)
-                .hasPrecipitation(false)
-                .temperature(0.3f)
-                .generationSettings(genSettings)
-                .specialEffects(specialEffects)
-                .mobSpawnSettings(spawnSettings)
-                .build();
-    }
 }

@@ -1,9 +1,9 @@
 {
-  "feature": "lunarnether:obsidian_mound",
+  "feature": "lunarnether:crater",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 300
+      "chance": 50
     },
     {
       "type": "minecraft:in_square"

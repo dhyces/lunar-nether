@@ -13,9 +13,6 @@ public class BiomeExtensionGen {
                 .add(new TerrainFogExtension(0, 800))
                 .add(new SkyFogExtension(0, 800))
                 .build();
-        BiomeExtension ashenPlains = BiomeExtension.single(new TerrainFogExtension(0, 100));
         context.register(RegistryHelper.registryKey(BiomeKeys.OUTROCKS.location()), surfaceFogModifier);
-        context.register(RegistryHelper.registryKey(BiomeKeys.ASHEN_PLAINS.location()), ashenPlains);
-        context.register(RegistryHelper.registryKey(BiomeKeys.ICY_BARRENS.location()), surfaceFogModifier);
     }
 }

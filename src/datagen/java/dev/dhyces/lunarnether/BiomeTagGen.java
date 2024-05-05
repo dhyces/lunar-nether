@@ -20,10 +20,6 @@ public class BiomeTagGen extends TagsProvider<Biome> {
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
         tag(BiomeTags.IS_NETHER)
-                .add(
-                        BiomeKeys.OUTROCKS,
-                        BiomeKeys.ASHEN_PLAINS,
-                        BiomeKeys.ICY_BARRENS
-                );
+                .add(BiomeKeys.OUTROCKS);
     }
 }
