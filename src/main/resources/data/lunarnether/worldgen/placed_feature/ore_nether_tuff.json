@@ -1,5 +1,5 @@
 {
-  "feature": "minecraft:ore_nether_tuff",
+  "feature": "lunarnether:ore_nether_tuff",
   "placement": [
     {
       "type": "minecraft:height_range",
