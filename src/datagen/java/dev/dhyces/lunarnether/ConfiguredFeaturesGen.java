@@ -23,13 +23,11 @@ public class ConfiguredFeaturesGen {
     public static final ResourceKey<ConfiguredFeature<?, ?>> OBSIDIAN_MOUND = key("obsidian_mound");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ILMENITE_ORE_KEY = key("ore_ilmenite");
 
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CRATER = key("crater");
 
 
     static void run(BootstapContext<ConfiguredFeature<?, ?>> pContext) {
         pContext.register(BASALT_MOUND, new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.BASALT), new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.simple(Blocks.BASALT), new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2), new TwoLayersFeatureSize(0, 0, 0)).dirt(BlockStateProvider.simple(Blocks.BASALT)).build()));
         pContext.register(OBSIDIAN_MOUND, new ConfiguredFeature<>(Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(BlockStateProvider.simple(Blocks.OBSIDIAN), new StraightTrunkPlacer(1, 0, 0), BlockStateProvider.simple(Blocks.OBSIDIAN), new BushFoliagePlacer(ConstantInt.of(2), ConstantInt.of(1), 2), new TwoLayersFeatureSize(0, 0, 0)).dirt(BlockStateProvider.simple(Blocks.OBSIDIAN)).build()));
-        pContext.register(CRATER, new ConfiguredFeature<>(new Crater(NoneFeatureConfiguration.CODEC), new NoneFeatureConfiguration()));
     }
 
     private static ResourceKey<ConfiguredFeature<?, ?>> key(String id) {
