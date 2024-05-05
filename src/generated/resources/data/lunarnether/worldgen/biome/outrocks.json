@@ -8,7 +8,7 @@
     "water_fog_color": 329011
   },
   "features": [
-    ["lunarnether:basalt_mound", "lunarnether:obsidian_mound", "lunarnether:crater"],
+    ["lunarnether:ore_nether_obsidian", "lunarnether:ore_nether_tuff"],
 
     ["lunarnether:ore_ilmenite"],
     [],
