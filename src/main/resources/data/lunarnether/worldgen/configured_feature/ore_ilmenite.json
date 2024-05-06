@@ -6,10 +6,10 @@
     "targets": [
       {
         "state": {
-          "Name": "lunarnether:lunar_stone"
+          "Name": "lunarnether:ilmenite_ore"
         },
         "target": {
-          "block": "lunarnether:ilmenite_ore",
+          "block": "lunarnether:lunar_stone",
           "predicate_type": "minecraft:block_match"
         }
       }

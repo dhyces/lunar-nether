@@ -7,6 +7,15 @@
       {
         "target": {
           "predicate_type": "minecraft:block_match",
+          "block": "minecraft:netherrack"
+        },
+        "state": {
+          "Name": "minecraft:tuff"
+        }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
           "block": "lunarnether:lunar_stone"
         },
         "state": {
