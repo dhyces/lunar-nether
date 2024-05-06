@@ -1,0 +1,35 @@
+{
+  "display": {
+    "icon": {
+      "id": "lunarnether:lunar_stone"
+    },
+    "title": "One small step for Steve!",
+    "description": "Step foot on the lunar surface",
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "minecraft:nether/root",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": [
+          {
+            "condition": "minecraft:location_check",
+            "predicate": {
+              "biomes": "lunarnether:outrocks",
+              "block": {
+                "blocks": "lunarnether:lunar_dust"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 10
+  }
+}

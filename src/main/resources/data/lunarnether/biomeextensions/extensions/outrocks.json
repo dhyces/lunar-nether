@@ -7,7 +7,7 @@
     },
     {
       "type": "biomeextensions:terrain_fog",
-      "far_plane": 800.0,
+      "far_plane": 700.0,
       "near_plane": 0.0
     }
   ]

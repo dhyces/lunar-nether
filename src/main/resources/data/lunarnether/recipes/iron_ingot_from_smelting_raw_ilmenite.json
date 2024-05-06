@@ -2,10 +2,12 @@
   "type": "minecraft:smelting",
   "category": "misc",
   "cookingtime": 200,
-  "experience": 0.7,
+  "experience": 1.0,
   "group": "iron_ingot",
   "ingredient": {
     "item": "lunarnether:raw_ilmenite"
   },
-  "result": "minecraft:iron_ingot"
+  "result": {
+    "id": "minecraft:iron_ingot"
+  }
 }

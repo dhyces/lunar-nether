@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:air"
+          "name": "lunarnether:raw_ilmenite_block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "lunarnether:blocks/ash_block"
+  "random_sequence": "lunarnether:blocks/lunar_stone"
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "titanium_ingot",
+  "ingredients": [
+    {
+      "item": "lunarnether:titanium_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "lunarnether:titanium_ingot"
+  }
+}
