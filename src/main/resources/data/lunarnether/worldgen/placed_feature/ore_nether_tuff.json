@@ -9,13 +9,13 @@
           "absolute": 125
         },
         "max_inclusive": {
-          "absolute": 130
+          "absolute": 128
         }
       }
     },
     {
       "type": "minecraft:count",
-      "count": 4
+      "count": 12
     }
   ]
 }
