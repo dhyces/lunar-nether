@@ -30,7 +30,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> CUT_POLISHED_LUNAR_STONE_SLAB = REGISTRY.register("cut_polished_lunar_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE).mapColor(MapColor.STONE)));
     public static final RegistryObject<Block> CUT_POLISHED_LUNAR_STONE_WALL = REGISTRY.register("cut_polished_lunar_stone_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.END_STONE).mapColor(MapColor.STONE)));
 
-    public static final RegistryObject<Block> ASH_BLOCK = REGISTRY.register("ash_block", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).sound(SoundType.SUSPICIOUS_SAND)));
     public static final RegistryObject<Block> ILMENITE_ORE = REGISTRY.register("ilmenite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.END_STONE).mapColor(MapColor.STONE)));
     public static final RegistryObject<Block> RAW_ILMENITE_BLOCK = REGISTRY.register("raw_ilmenite_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).mapColor(MapColor.RAW_IRON)));
 
