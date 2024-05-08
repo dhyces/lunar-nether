@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "lunarnether:lunar_stone"
+      "item": "lunarnether:lunar_stone"
     },
     "title": "One small step for Steve!",
     "description": "Step foot on the lunar surface",
