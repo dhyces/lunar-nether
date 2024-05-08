@@ -8,7 +8,8 @@
     "water_fog_color": 329011
   },
   "features": [
-    ["lunarnether:small_moon_rock"],
+    ["lunarnether:small_moonstone_rock"],
+    ["lunarnether:small_tuff_rock"],
     ["lunarnether:ore_nether_obsidian"],
     ["lunarnether:ore_nether_tuff"],
     ["lunarnether:ore_ilmenite"]

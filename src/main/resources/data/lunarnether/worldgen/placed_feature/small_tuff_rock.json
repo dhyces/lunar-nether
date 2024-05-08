@@ -1,16 +1,16 @@
 {
-  "feature": "lunarnether:small_moon_rock",
+  "feature": "lunarnether:small_tuff_rock",
   "placement": [
     {
       "type": "minecraft:rarity_filter",
-      "chance": 16
+      "chance": 4
     },
     {
       "type": "minecraft:in_square"
     },
     {
       "type": "minecraft:random_offset",
-      "xz_spread": 5,
+      "xz_spread": 7,
       "y_spread": 0
     },
     {

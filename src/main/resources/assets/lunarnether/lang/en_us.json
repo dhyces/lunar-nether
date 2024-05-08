@@ -12,5 +12,11 @@
   "block.lunarnether.polished_lunar_stone_slab": "Polished Moonstone Slab",
   "block.lunarnether.polished_lunar_stone_stairs": "Polished Moonstone Stairs",
   "block.lunarnether.polished_lunar_stone_wall": "Polished Moonstone Wall",
-  "block.lunarnether.raw_ilmenite_block": "Raw Ilmenite Block"
+  "block.lunarnether.raw_ilmenite_block": "Block of Ilmenite",
+  "block.lunarnether.ilmenite_ore": "Ilmenite Ore",
+  "block.lunarnether.titanium_block": "Titanium Block",
+
+  "item.lunarnether.raw_ilmenite": "Ilmenite", 
+  "item.lunarnether.titanium_ingot": "Titanium Ingot",
+  "item.lunarnether.titanium_nugget": "Titanium Nugget"
 }
