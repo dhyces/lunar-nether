@@ -21,6 +21,15 @@
         "state": {
           "Name": "minecraft:tuff"
         }
+      },
+      {
+        "target": {
+          "predicate_type": "minecraft:block_match",
+          "block": "minecraft:air"
+        },
+        "state": {
+          "Name": "minecraft:tuff"
+        }
       }
     ]
   }
