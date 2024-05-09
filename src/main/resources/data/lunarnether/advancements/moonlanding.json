@@ -21,7 +21,7 @@
             "predicate": {
               "biomes": "lunarnether:outrocks",
               "block": {
-                "blocks": "lunarnether:lunar_dust"
+                "blocks": ["lunarnether:lunar_dust"]
               }
             }
           }
