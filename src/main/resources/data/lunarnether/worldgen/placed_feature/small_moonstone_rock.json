@@ -10,7 +10,7 @@
     },
     {
       "type": "minecraft:random_offset",
-      "xz_spread": 5,
+      "xz_spread": 7,
       "y_spread": 0
     },
     {
