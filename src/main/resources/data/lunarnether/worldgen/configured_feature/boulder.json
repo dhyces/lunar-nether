@@ -2,10 +2,10 @@
   "type": "minecraft:geode",
   "config": {
     "blocks": {
-      "alternate_inner_layer_provider": {
+      "filling_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
-          "Name": "lunarnether:ilmenite_ore"
+          "Name": "lunarnether:raw_ilmenite_block"
         }
       },
       "inner_layer_provider": {
@@ -14,12 +14,12 @@
           "Name": "lunarnether:lunar_stone"
         }
       },
-      "inner_placements": [
-        {
-          "Name": "lunarnether:raw_ilmenite_block"
+      "alternate_inner_layer_provider": {
+        "type": "minecraft:simple_state_provider",
+        "state": {
+          "Name": "lunarnether:ilmenite_ore"
         }
-      ],
-      "invalid_blocks": "#minecraft:geode_invalid_blocks",
+      },
       "middle_layer_provider": {
         "type": "minecraft:simple_state_provider",
         "state": {
@@ -31,12 +31,33 @@
         "state": {
           "Name": "lunarnether:lunar_stone"
         }
-      }
+      },
+//required or it crashes
+      "inner_placements": [],
+      "cannot_replace": "#minecraft:geode_invalid_blocks",
+      "invalid_blocks": "#minecraft:geode_invalid_blocks"
+    },
+//must be between 0 and 50, not inclusive.
+    "layers": {
+      "filling": 0.5,
+      "inner_layer": 3.3,
+      "middle_layer": 0.1,
+      "outer_layer": 0.1
     },
     "crack": {
-      "base_crack_size": 2.0,
-      "crack_point_offset": 2,
-      "generate_crack_chance": 0.5
+      "generate_crack_chance": 0.5,
+      "base_crack_size": 2,
+      "crack_point_offset": 2
+    },
+    "use_potential_placements_chance": 0.1,
+    "use_alternate_layer0_chance": 0.25,
+    "placements_require_layer0_alternate": false,
+    "outer_wall_distance": {
+      "type": "minecraft:uniform",
+      "value": {
+        "max_inclusive": 3,
+        "min_inclusive": 2
+      }
     },
     "distribution_points": {
       "type": "minecraft:uniform",
@@ -45,24 +66,6 @@
         "min_inclusive": 3
       }
     },
-    "invalid_blocks_threshold": 1,
-    "layers": {
-      "filling": 0.5,
-      "inner_layer": 2,
-      "middle_layer": 0,
-      "outer_layer": 0
-    },
-    "max_gen_offset": 16,
-    "min_gen_offset": -16,
-    "noise_multiplier": 0.05,
-    "outer_wall_distance": {
-      "type": "minecraft:uniform",
-      "value": {
-        "max_inclusive": 3,
-        "min_inclusive": 2
-      }
-    },
-    "placements_require_layer0_alternate": true,
     "point_offset": {
       "type": "minecraft:uniform",
       "value": {
@@ -70,7 +73,8 @@
         "min_inclusive": 1
       }
     },
-    "use_alternate_layer0_chance": 0.25,
-    "use_potential_placements_chance": 0.00
+    "min_gen_offset": 1,
+    "max_gen_offset": 3,
+    "invalid_blocks_threshold": 1
   }
 }
