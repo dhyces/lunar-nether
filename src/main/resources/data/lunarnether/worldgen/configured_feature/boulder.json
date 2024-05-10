@@ -33,7 +33,11 @@
         }
       },
 //required or it crashes
-      "inner_placements": [],
+      "inner_placements": [
+        {
+          "Name": "lunarnether:ilmenite_ore"
+        }
+      ],
       "cannot_replace": "#minecraft:geode_invalid_blocks",
       "invalid_blocks": "#minecraft:geode_invalid_blocks"
     },
