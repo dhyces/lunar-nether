@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:forest_rock",
+  "type": "lunarnether:rock",
   "config": {
     "state": {
       "Name": "lunarnether:lunar_stone"
