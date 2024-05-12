@@ -1,0 +1,51 @@
+{
+  "type": "minecraft:root_system",
+  "config": {
+    "required_vertical_space_for_tree": 1,
+    "root_radius": 5,
+    "root_placement_attempts": 20,
+    "root_column_max_height": 96,
+    "hanging_root_radius": 3,
+    "hanging_roots_vertical_span": 2,
+    "hanging_root_placement_attempts": 20,
+    "allowed_vertical_water_for_tree": 1,
+    "root_replaceable": "#minecraft:nether_carver_replaceables",
+    "root_state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:tuff"
+      }
+    },
+    "hanging_root_state_provider": {
+      "type": "minecraft:simple_state_provider",
+      "state": {
+        "Name": "minecraft:tuff",
+        "Properties": {
+          "waterlogged": "false"
+        }
+      }
+    },
+    "allowed_tree_position": {
+      "type": "minecraft:true"
+    },
+    "feature": {
+      "feature": {
+        "type": "minecraft:block_pile",
+        "config": {
+          "state_provider": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:tuff"
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:rarity_filter",
+          "chance": 4
+        }
+      ]
+    }
+  }
+}

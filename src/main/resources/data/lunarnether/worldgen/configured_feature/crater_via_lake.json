@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:lake",
+  "config": {
+    "fluid": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "lunarnether:ilmenite_ore"
+          }
+        },
+        {
+          "weight": 7,
+          "data": {
+            "Name": "lunarnether:moondust"
+          }
+        }
+      ]
+    },
+    "barrier": {
+      "type": "minecraft:weighted_state_provider",
+      "entries": [
+        {
+          "weight": 1,
+          "data": {
+            "Name": "lunarnether:moonstone"
+          }
+        }
+      ]
+    }
+  }
+}
