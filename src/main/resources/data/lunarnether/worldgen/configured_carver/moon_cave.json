@@ -1,5 +1,5 @@
 {
-  "type": "lunarnether:moon_cave",
+  "type": "minecraft:cave",
   "config": {
     "debug_settings": {
       "air_state": {
