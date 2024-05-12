@@ -31,6 +31,7 @@ public class ModItems {
     public static final RegistryObject<Item> CUT_POLISHED_LUNAR_STONE_WALL = registerBlockItem("cut_polished_lunar_stone_wall", ModBlocks.CUT_POLISHED_LUNAR_STONE_WALL);
     public static final RegistryObject<Item> ILMENITE_ORE = registerBlockItem("ilmenite_ore", ModBlocks.ILMENITE_ORE);
     public static final RegistryObject<Item> RAW_ILMENITE_BLOCK = registerBlockItem("raw_ilmenite_block", ModBlocks.RAW_ILMENITE_BLOCK);
+    public static final RegistryObject<Item> TITANIUM_BLOCK = registerBlockItem("titanium_block", ModBlocks.TITANIUM_BLOCK);
 
     public static final RegistryObject<Item> RAW_ILMENITE = REGISTRY.register("raw_ilmenite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TITANIUM_INGOT = REGISTRY.register("titanium_ingot", () -> new Item(new Item.Properties()));
