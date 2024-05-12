@@ -4,16 +4,33 @@
   },
   "downfall": 0.0,
   "effects": {
+    "additions_sound": {
+      "sound": "minecraft:ambient.basalt_deltas.additions",
+      "tick_chance": 0.0111
+    },
+    "ambient_sound": "minecraft:ambient.basalt_deltas.loop",
+    "mood_sound": {
+      "block_search_extent": 8,
+      "offset": 2.0,
+      "sound": "minecraft:ambient.basalt_deltas.mood",
+      "tick_delay": 6000
+    },
+    "music": {
+      "max_delay": 24000,
+      "min_delay": 12000,
+      "replace_current_music": false,
+      "sound": "minecraft:music.nether.basalt_deltas"
+    },
+    "particle": {
+      "options": {
+        "type": "minecraft:white_ash"
+      },
+      "probability": 0.075
+    },
     "fog_color": 16777215,
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011,
-    "particle": {
-      "options": {
-        "type": "minecraft:electric_spark"
-      },
-      "probability": 1
-    }
   },
 //the position of things in the features array of arrays is important, surprisingly.
   "features": [
