@@ -1,17 +1,26 @@
 {
-  "carvers": {},
+  "carvers": {
+    "air": "minecraft:cave"
+  },
   "downfall": 0.0,
   "effects": {
     "fog_color": 16777215,
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011
+    "particle": {
+      "options": {
+        "type": "minecraft:electric_spark"
+      },
+      "probability": 1
+    }
+  },
   },
 //the position of things in the features array of arrays is important, surprisingly.
   "features": [
     [],
     [],
-    ["lunarnether:small_tuff_rock", "lunarnether:small_moonstone_rock", "lunarnether:boulder"],
+    ["lunarnether:small_tuff_rock", "lunarnether:small_moonstone_rock"],
     [],
     [],
     [],
@@ -33,5 +42,6 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.4
+  "temperature": 0.4, 
+  "temperature_modifier": "frozen"
 }
