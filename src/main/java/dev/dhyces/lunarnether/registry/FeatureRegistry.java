@@ -14,7 +14,6 @@ import net.minecraftforge.registries.RegistryObject;
 public class FeatureRegistry {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, LunarNether.MODID);
 
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CRATER = FEATURES.register("crater", () -> new Crater(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<ExtendedBlockStateConfiguration>> ROCK = FEATURES.register("rock", () -> new RockFeature(ExtendedBlockStateConfiguration.CODEC));
 
 
