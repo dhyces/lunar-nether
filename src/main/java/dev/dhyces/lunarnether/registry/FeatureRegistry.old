@@ -1,6 +1,7 @@
 package dev.dhyces.lunarnether.registry;
 
 import dev.dhyces.lunarnether.LunarNether;
+import dev.dhyces.lunarnether.worldgen.feature.Crater;
 import dev.dhyces.lunarnether.worldgen.feature.RockFeature;
 import dev.dhyces.lunarnether.worldgen.feature.configs.ExtendedBlockStateConfiguration;
 import net.minecraft.world.level.levelgen.feature.Feature;
