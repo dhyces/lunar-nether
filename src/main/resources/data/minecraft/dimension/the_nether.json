@@ -71,7 +71,7 @@
       },
       "heighted": [
         {
-          "y": 124,
+          "y": 128,
           "source": {
             "type": "minecraft:multi_noise",
             "biomes": [
