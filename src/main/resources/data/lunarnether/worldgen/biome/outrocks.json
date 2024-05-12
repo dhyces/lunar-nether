@@ -15,7 +15,6 @@
       "probability": 1
     }
   },
-  },
 //the position of things in the features array of arrays is important, surprisingly.
   "features": [
     [],
