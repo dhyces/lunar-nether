@@ -2,7 +2,7 @@
   "type": "minecraft:root_system",
   "config": {
     "required_vertical_space_for_tree": 1,
-    "root_radius": 5,
+    "root_radius": 3,
     "root_placement_attempts": 20,
     "root_column_max_height": 96,
     "hanging_root_radius": 3,

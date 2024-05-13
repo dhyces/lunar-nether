@@ -7,13 +7,13 @@
         {
           "weight": 1,
           "data": {
-            "Name": "lunarnether:ilmenite_ore"
+            "Name": "minecraft:packed_ice"
           }
         },
         {
-          "weight": 7,
+          "weight": 3,
           "data": {
-            "Name": "lunarnether:moondust"
+            "Name": "minecraft:air"
           }
         }
       ]
