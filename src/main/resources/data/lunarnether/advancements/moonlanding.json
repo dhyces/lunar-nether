@@ -19,10 +19,7 @@
           {
             "condition": "minecraft:location_check",
             "predicate": {
-              "biomes": "lunarnether:outrocks",
-              "block": {
-                "blocks": ["lunarnether:lunar_dust"]
-              }
+              "biome": "lunarnether:outrocks"
             }
           }
         ]
