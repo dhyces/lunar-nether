@@ -1,0 +1,8 @@
+{
+  "values": [
+    "minecraft:tuff",
+    "lunarnether:lunar_stone",
+    "lunarnether:lunar_dust", 
+    "#minecraft:nether_carver_replaceables"
+  ]
+}
