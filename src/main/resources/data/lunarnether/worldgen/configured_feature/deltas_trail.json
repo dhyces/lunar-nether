@@ -32,7 +32,7 @@
       "feature": {
         "type": "minecraft:basalt_columns",
         "config": {
-          "reach": 1,
+          "reach": 2,
           "height": {
             "type": "minecraft:uniform",
             "value": {
@@ -45,7 +45,7 @@
       "placement": [
         {
           "type": "minecraft:count",
-          "count": 1
+          "count": 2
         },
         {
           "type": "minecraft:heightmap",

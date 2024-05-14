@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features", // required
-  "biomes": "minecraft:basalt_deltas", // accepts a biome id, [list of biome ids], or #namespace:biome_tag
+  "biomes": ["minecraft:basalt_deltas", "minecraft:nether_wastes"], // accepts a biome id, [list of biome ids], or #namespace:biome_tag
   "features": ["lunarnether:deltas_trail"], // accepts a placed feature id, [list of placed feature ids], or #namespace:feature_tag
   "step": "underground_decoration" // accepts a Decoration enum name
 }
