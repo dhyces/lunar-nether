@@ -2,7 +2,7 @@
   "type": "minecraft:root_system",
   "config": {
     "required_vertical_space_for_tree": 1,
-    "root_radius": 7,
+    "root_radius": 3,
     "root_placement_attempts": 16,
     "root_column_max_height": 48,
     "hanging_root_radius": 4,
@@ -13,15 +13,18 @@
     "root_state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:magma_block"
+        "Name": "minecraft:basalt",
+        "Properties": {
+          "axis": "y"
+        }
       }
     },
     "hanging_root_state_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:magma_block",
+        "Name": "minecraft:basalt",
         "Properties": {
-          "waterlogged": "false"
+          "axis": "y"
         }
       }
     },
@@ -30,26 +33,26 @@
     },
     "feature": {
       "feature": {
-        "type": "minecraft:basalt_columns",
+        "type": "minecraft:lake",
         "config": {
-          "reach": 2,
-          "height": {
-            "type": "minecraft:uniform",
-            "value": {
-              "min_inclusive": 1,
-              "max_inclusive": 2
+          "fluid": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "lunarnether:lunar_stone"
+            }
+          },
+          "barrier": {
+            "type": "minecraft:simple_state_provider",
+            "state": {
+              "Name": "minecraft:packed_ice"
             }
           }
         }
       },
       "placement": [
         {
-          "type": "minecraft:count",
-          "count": 2
-        },
-        {
           "type": "minecraft:heightmap",
-          "heightmap": "MOTION_BLOCKING"
+          "heightmap": "WORLD_SURFACE"
         }
       ]
     }
