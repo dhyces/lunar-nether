@@ -38,13 +38,13 @@
           "fluid": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:basalt"
+              "Name": "minecraft:air"
             }
           },
           "barrier": {
             "type": "minecraft:simple_state_provider",
             "state": {
-              "Name": "minecraft:air"
+              "Name": "minecraft:basalt"
             }
           }
         }
