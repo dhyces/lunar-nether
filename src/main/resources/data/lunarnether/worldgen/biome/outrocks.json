@@ -35,8 +35,8 @@
 //the position of things in the features array of arrays is important, surprisingly.
   "features": [
     [],
-    [],
-    ["lunarnether:small_tuff_rock", "lunarnether:small_moonstone_rock", "lunarnether:crater_small"],
+    ["lunarnether:crater_small"],
+    ["lunarnether:small_tuff_rock", "lunarnether:small_moonstone_rock"],
     [],
     [],
     [],
