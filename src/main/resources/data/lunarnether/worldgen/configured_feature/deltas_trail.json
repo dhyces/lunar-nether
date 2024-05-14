@@ -28,6 +28,30 @@
     "allowed_tree_position": {
       "type": "minecraft:true"
     },
-    "feature": "minecraft:small_basalt_columns"
+    "feature": {
+      "feature": {
+        "type": "minecraft:basalt_columns",
+        "config": {
+          "reach": 1,
+          "height": {
+            "type": "minecraft:uniform",
+            "value": {
+              "min_inclusive": 1,
+              "max_inclusive": 4
+            }
+          }
+        }
+      },
+      "placement": [
+        {
+          "type": "minecraft:count",
+          "count": 4
+        },
+        {
+          "type": "minecraft:heightmap",
+          "heightmap": "MOTION_BLOCKING"
+        }
+      ]
+    }
   }
 }
