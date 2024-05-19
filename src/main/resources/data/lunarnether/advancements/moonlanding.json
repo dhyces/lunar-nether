@@ -5,7 +5,7 @@
     },
     "title": "One small step for Steve!",
     "description": "Step foot on the lunar surface",
-    "frame": "goal",
+    "frame": "task",
     "show_toast": true,
     "announce_to_chat": true,
     "hidden": false
@@ -15,14 +15,16 @@
     "requirement": {
       "trigger": "minecraft:location",
       "conditions": {
-        "player": [
-          {
-            "condition": "minecraft:location_check",
-            "predicate": {
-              "biome": "lunarnether:outrocks"
+        "player": {
+          "stepping_on": {
+            "biome": "lunarnether:outrocks",
+            "block": {
+              "blocks": [
+                "lunarnether:lunar_dust"
+              ]
             }
           }
-        ]
+        }
       }
     }
   },
@@ -30,3 +32,4 @@
     "experience": 10
   }
 }
+//There is a "can see sky" option coming in 1.21, you should use it for this if/when updating the mod to that version.
