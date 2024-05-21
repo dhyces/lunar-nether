@@ -92,7 +92,7 @@ repositories {
 dependencies {
     runtimeOnly("io.github.llamalad7:mixinextras-common:0.3.2")
     runtimeOnly("io.github.llamalad7:mixinextras-forge:0.3.2")
-    implementation fg.deobf("maven.modrinth:trimmed:1.20.4-2.1.5+forge")
+    implementation fg.deobf("maven.modrinth:trimmed:1.20.1-2.1.4+forge")
 }
 
 dependencies {
