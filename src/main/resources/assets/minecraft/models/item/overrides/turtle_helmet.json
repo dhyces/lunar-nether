@@ -1,0 +1,9 @@
+{
+  "values": [
+    {
+      "type": "trimmed:trim",
+      "material": "lunarnether:ilmenite",
+      "model": "lunarnether:turtle_helmet_ilmenite_trim"
+    }
+  ]
+}

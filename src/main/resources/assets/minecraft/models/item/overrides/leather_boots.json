@@ -1,0 +1,9 @@
+{
+  "values": [
+    {
+      "type": "trimmed:trim",
+      "material": "lunarnether:ilmenite",
+      "model": "lunarnether:leather_boots_ilmenite_trim"
+    }
+  ]
+}

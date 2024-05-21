@@ -18,5 +18,6 @@
 
   "item.lunarnether.raw_ilmenite": "Ilmenite", 
   "item.lunarnether.titanium_ingot": "Titanium Ingot",
-  "item.lunarnether.titanium_nugget": "Titanium Nugget"
+  "item.lunarnether.titanium_nugget": "Titanium Nugget",
+  "lunarnether.trim_material.ilmenite": "Ilmenite Material"
 }

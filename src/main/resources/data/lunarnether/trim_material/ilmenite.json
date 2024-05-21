@@ -1,0 +1,9 @@
+{
+  "asset_name": "ilmenite",
+  "description": {
+    "color": "#604050",
+    "translate": "lunarnether.trim_material.ilmenite"
+  },
+  "ingredient": "lunarnether:ilmenite",
+  "item_model_index": -1.0
+}

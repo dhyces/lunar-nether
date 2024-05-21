@@ -1,0 +1,9 @@
+{
+  "values": [
+    {
+      "type": "trimmed:trim",
+      "material": "lunarnether:ilmenite",
+      "model": "lunarnether:iron_leggings_ilmenite_trim"
+    }
+  ]
+}
