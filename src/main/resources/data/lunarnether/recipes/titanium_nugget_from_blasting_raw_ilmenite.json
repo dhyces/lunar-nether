@@ -3,11 +3,10 @@
   "category": "misc",
   "cookingtime": 100,
   "experience": 1.0,
-  "group": "copper_ingot",
   "ingredient": {
     "item": "lunarnether:raw_ilmenite"
   },
   "result": {
-    "item": "minecraft:iron_ingot"
+    "item": "lunarnether:titanium_nugget"
   }
 }
