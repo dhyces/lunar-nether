@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "lunarnether:block/cut_titanium_slab"
+    },
+    "type=double": {
+      "model": "lunarnether:block/cut_titanium"
+    },
+    "type=top": {
+      "model": "lunarnether:block/cut_titanium_slab_top"
+    }
+  }
+}

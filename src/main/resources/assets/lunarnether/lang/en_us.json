@@ -15,6 +15,10 @@
   "block.lunarnether.raw_ilmenite_block": "Block of Ilmenite",
   "block.lunarnether.ilmenite_ore": "Ilmenite Ore",
   "block.lunarnether.titanium_block": "Titanium Block",
+  "block.lunarnether.cut_titanium": "Cut Titanium",
+  "block.lunarnether.cut_titanium_slab": "Cut Titanium Slab",
+  "block.lunarnether.cut_titanium_stairs": "Cut Titanium Stairs",
+  "block.lunarnether.cut_titanium_wall": "Cut Titanium Wall",
 
   "item.lunarnether.raw_ilmenite": "Ilmenite", 
   "item.lunarnether.titanium_ingot": "Titanium Ingot",
