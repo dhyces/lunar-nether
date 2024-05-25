@@ -1,0 +1,9 @@
+{
+  "asset_name": "titanium",
+  "description": {
+    "color": "#A8A0B0",
+    "translate": "lunarnether.trim_material.titanium"
+  },
+  "ingredient": "lunarnether:titanium_ingot",
+  "item_model_index": -1.0
+}
