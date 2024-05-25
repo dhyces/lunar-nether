@@ -1,0 +1,8 @@
+{
+  "type": "lunarnether:rock",
+  "config": {
+    "state": {
+      "Name": "lunarnether:ilmenite_ore"
+    }
+  }
+}
