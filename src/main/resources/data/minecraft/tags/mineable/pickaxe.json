@@ -1,0 +1,27 @@
+{
+    "values": [
+      "lunarnether:lunar_stone",
+      "lunarnether:lunar_stone_slab",
+      "lunarnether:lunar_stone_stairs",
+      "lunarnether:lunar_stone_wall",
+
+      "lunarnether:polished_lunar_stone",
+      "lunarnether:polished_lunar_stone_slab",
+      "lunarnether:polished_lunar_stone_stairs",
+      "lunarnether:polished_lunar_stone_wall",
+
+      "lunarnether:cut_polished_lunar_stone",
+      "lunarnether:cut_polished_lunar_stone_slab",
+      "lunarnether:cut_polished_lunar_stone_stairs",
+      "lunarnether:cut_polished_lunar_stone_wall",
+
+      "lunarnether:ilmenite_ore",
+      "lunarnether:raw_ilmenite_block",
+
+      "lunarnether:titanium_block",
+      "lunarnether:cut_titanium",
+      "lunarnether:cut_titanium_slab",
+      "lunarnether:cut_titanium_stairs",
+      "lunarnether:cut_titanium_wall"
+    ]
+  }

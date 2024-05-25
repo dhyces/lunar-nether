@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/wall_inventory",
   "textures": {
-    "wall": "lunarnether:block/cut_polished_lunar_stone"
+    "wall": "lunarnether:block/cut_titaniumm"
   }
 }

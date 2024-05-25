@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 4,
+  "ingredient": {
+    "item": "lunarnether:titanium_block"
+  },
+  "result": "lunarnether:cut_titanium"
+}
