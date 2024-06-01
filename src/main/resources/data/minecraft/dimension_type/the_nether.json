@@ -1,5 +1,9 @@
 {
   "ambient_light": 0.1,
+  //fixed time is temporary 
+  //until the special slower day cycle can be added
+  //should be 1/8th speed and have an eclipse (fake night) at noon
+  "fixed_time": 5000,
   "bed_works": false,
   "coordinate_scale": 8.0,
   "effects": "minecraft:the_nether",
