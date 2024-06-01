@@ -139,7 +139,7 @@
         "if_true": {
           "type": "minecraft:y_above",
           "anchor": {
-            "below_top": 48
+            "below_top": 64
           },
           "surface_depth_multiplier": 0,
           "add_stone_depth": false
