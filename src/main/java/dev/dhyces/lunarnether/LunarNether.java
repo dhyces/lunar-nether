@@ -3,7 +3,10 @@ package dev.dhyces.lunarnether;
 import dev.dhyces.biomeextensions.BiomeExtensionsMod;
 import dev.dhyces.lunarnether.registry.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -26,8 +29,17 @@ public class LunarNether {
         ModParticleTypes.REGISTRY.register(modBus);
         ModBiomeSources.REGISTRY.register(modBus);
         FeatureRegistry.FEATURES.register(modBus);
+
+        modBus.addListener(this::addItemsToTabs);
+
         if (FMLLoader.getDist().isClient()) {
             LunarNetherClient.register(modBus, forgeBus);
+        }
+    }
+
+    private void addItemsToTabs(final BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == CreativeModeTabs.SEARCH) {
+            ModItems.REGISTRY.getEntries().forEach(item -> event.accept(item, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY));
         }
     }
 }
