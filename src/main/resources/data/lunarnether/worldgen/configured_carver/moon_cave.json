@@ -8,7 +8,9 @@
         "above_bottom": 120
       },
       "max_inclusive": {
-        "below_top": 80
+        //below top is below either world max height
+        //or terrain gen max height, whichever is lower
+        "below_top": 0
       }
     },
     "yScale": {
