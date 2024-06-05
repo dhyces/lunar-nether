@@ -5,7 +5,7 @@
     "y": {
       "type": "minecraft:uniform",
       "min_inclusive": {
-        "above_bottom": 112
+        "above_bottom": 128
       },
       "max_inclusive": {
         //below top is below either world max height
