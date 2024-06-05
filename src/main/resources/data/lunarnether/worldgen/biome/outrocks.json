@@ -1,6 +1,6 @@
 {
   "carvers": {
-    "air": "lunarnether:moon_cave"
+//these are never called because of a vanilla bug, but Ratatosk made a workaround.
   },
   "downfall": 0.0,
   "effects": {
