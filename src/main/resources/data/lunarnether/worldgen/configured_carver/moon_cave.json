@@ -23,7 +23,6 @@
     },
     "replaceable": "#lunarnether:moon_carver_replaceables",
     "debug_settings": {
-      "debug_mode": true,
       "air_state": {
         "Name": "minecraft:crimson_button",
         "Properties": {

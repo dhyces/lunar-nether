@@ -11,6 +11,8 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Mod(LunarNether.MODID)
 public class LunarNether {
@@ -18,6 +20,7 @@ public class LunarNether {
     public static ResourceLocation id(String id) {
         return new ResourceLocation(MODID, id);
     }
+    public static final Logger LOGGER = LoggerFactory.getLogger("LunarNether");
 
     public LunarNether() {
         BiomeExtensionsMod.init();
@@ -28,6 +31,7 @@ public class LunarNether {
         ModItems.REGISTRY.register(modBus);
         ModParticleTypes.REGISTRY.register(modBus);
         ModBiomeSources.REGISTRY.register(modBus);
+        BiomeModifierTypes.REGISTER.register(modBus);
         FeatureRegistry.FEATURES.register(modBus);
 
         modBus.addListener(this::addItemsToTabs);
