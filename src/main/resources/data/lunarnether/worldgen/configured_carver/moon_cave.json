@@ -1,11 +1,11 @@
 {
   "type": "minecraft:cave",
   "config": {
-    "probability": 0.25,
+    "probability": 0.05,
     "y": {
       "type": "minecraft:uniform",
       "min_inclusive": {
-        "above_bottom": 120
+        "above_bottom": 112
       },
       "max_inclusive": {
         //below top is below either world max height
