@@ -3,6 +3,7 @@
     "minecraft:tuff",
     "minecraft:obsidian",
     "lunarnether:lunar_stone",
-    "lunarnether:lunar_dust"
+    "lunarnether:lunar_dust",
+    "#minecraft:nether_carver_replaceables"
   ]
 }
