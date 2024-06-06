@@ -24,7 +24,7 @@
         {
           "type": "minecraft:height_range",
           "height": {
-            "absolute": 128
+            "absolute": 127
           }
         },
         {
