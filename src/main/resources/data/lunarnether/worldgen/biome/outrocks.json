@@ -1,6 +1,6 @@
 {
   "carvers": {
-//these are never called because of a vanilla bug, but Ratatosk made a workaround.
+//these are never called because of a vanilla bug, but Ratatosk made a workaround in biome modifiers
   },
   "downfall": 0.0,
   "effects": {
@@ -39,8 +39,8 @@
     ["lunarnether:small_tuff_rock", "lunarnether:small_moonstone_rock", "lunarnether:small_ore_rock"],
     [],
     [],
-    [],
-    ["lunarnether:ore_ilmenite", "lunarnether:ore_nether_tuff","lunarnether:ore_nether_obsidian","lunarnether:air_disk"],
+    ["lunarnether:air_disk"],
+    ["lunarnether:ore_ilmenite", "lunarnether:ore_nether_tuff","lunarnether:ore_nether_obsidian"],
     [],
     [],
     [],
