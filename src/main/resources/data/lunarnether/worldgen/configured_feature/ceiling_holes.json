@@ -37,7 +37,7 @@
         {
           "type": "minecraft:environment_scan",
           "direction_of_search": "down",
-          "max_steps": 1,
+          "max_steps": 2,
           "target_condition": {
             "type": "minecraft:matching_blocks",
             "blocks": "minecraft:air"
