@@ -24,5 +24,7 @@
   "item.lunarnether.titanium_ingot": "Titanium Ingot",
   "item.lunarnether.titanium_nugget": "Titanium Nugget",
   "lunarnether.trim_material.ilmenite": "Ilmenite Material",
-  "lunarnether.trim_material.titanium": "Titanium Material"
+  "lunarnether.trim_material.titanium": "Titanium Material", 
+
+  "biome.lunarnether.outrocks": "Outrocks"
 }
