@@ -27,7 +27,7 @@
       },
       "probability": 0.025
     },
-    "fog_color": 16777215,
+    "fog_color": 0,
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011

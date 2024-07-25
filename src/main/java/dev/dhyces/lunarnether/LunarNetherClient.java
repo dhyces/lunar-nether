@@ -1,35 +1,40 @@
 package dev.dhyces.lunarnether;
 
 import com.mojang.blaze3d.platform.GlStateManager;
-import com.mojang.blaze3d.shaders.FogShape;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
 import com.mojang.math.Axis;
 import dev.dhyces.lunarnether.client.particle.ColoredAshParticle;
 import dev.dhyces.lunarnether.registry.ModParticleTypes;
+import dev.dhyces.lunarnether.server.LunarTimeData;
 import dev.dhyces.lunarnether.util.ColorUtil;
 import net.minecraft.client.Camera;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.renderer.ShaderInstance;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
-import net.minecraftforge.client.event.ViewportEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.IEventBus;
 import org.joml.*;
-import org.lwjgl.opengl.GL11C;
 
 import java.lang.Math;
 
 public final class LunarNetherClient {
+    private static final ResourceLocation SUN_LOCATION = new ResourceLocation("textures/environment/sun.png");
+    private static final ResourceLocation EARTH_LOCATION = LunarNether.id("textures/environment/overworld_phases.png");
+
+    /**
+     * A separate time value for the nether which controls light and sky rendering.
+     * Increases 8 times slower than the normal overworld daytime.
+     */
+    public static long netherDayTime = 0;
+
     static void register(IEventBus modBus, IEventBus forgeBus) {
         modBus.addListener(LunarNetherClient::registerParticles);
         modBus.addListener(LunarNetherClient::netherSky);
@@ -41,68 +46,25 @@ public final class LunarNetherClient {
 
     private static void netherSky(final RegisterDimensionSpecialEffectsEvent event) {
         event.register(BuiltinDimensionTypes.NETHER_EFFECTS, new DimensionSpecialEffects(Float.NaN, true, DimensionSpecialEffects.SkyType.NORMAL, false, true) {
-            private static VertexBuffer topHalfBuffer;
-            private static VertexBuffer bottomHalfBuffer;
+            private static VertexBuffer skyBuffer;
             private static VertexBuffer starsBuffer;
 
             static {
-                topHalfBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
-                bottomHalfBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
+                setup();
+            }
+
+            static void setup() {
+                skyBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
                 starsBuffer = new VertexBuffer(VertexBuffer.Usage.STATIC);
 
-                Tesselator tesselator = Tesselator.getInstance();
-                BufferBuilder builder = tesselator.getBuilder();
+                BufferBuilder builder = Tesselator.getInstance().getBuilder();
 
-                RenderSystem.setShader(GameRenderer::getPositionShader);
-                builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
-                builder.vertex(0, 16, 0).endVertex();
-                // TODO: Fix this
-                for (int i = -180; i <= 180; i+=45) {
-                    builder.vertex(512f * Mth.cos(i * Mth.DEG_TO_RAD), 16, 512f * Mth.sin(i * Mth.DEG_TO_RAD)).endVertex();
-                }
-
-                topHalfBuffer.bind();
-                topHalfBuffer.upload(builder.end());
+                skyBuffer.bind();
+                skyBuffer.upload(drawSky(builder));
                 VertexBuffer.unbind();
-
-                builder.begin(VertexFormat.Mode.TRIANGLE_FAN, DefaultVertexFormat.POSITION);
-                builder.vertex(0, -32, 0).endVertex();
-
-                for (int i = -180; i <= 180; i+=45) {
-                    builder.vertex(-512f * Mth.cos(i * Mth.DEG_TO_RAD), -32, 512f * Mth.sin(i * Mth.DEG_TO_RAD)).endVertex();
-                }
-
-                bottomHalfBuffer.bind();
-                bottomHalfBuffer.upload(builder.end());
-                VertexBuffer.unbind();
-
-                builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-                RandomSource random = RandomSource.create(0xAAAAA);
-                PoseStack poseStack = new PoseStack();
-                for (int i = 0; i < 1500; i++) {
-                    Vector3d vec = new Vector3d(random.nextFloat() * 2d - 1d, random.nextFloat() * 2d - 1d, random.nextFloat() * 2d - 1d);
-                    double lenSquared = vec.lengthSquared();
-                    if (lenSquared < 1.0 && lenSquared > 0.01) {
-                        vec.mul(1.0 / Math.sqrt(lenSquared)).mul(500);
-
-                        poseStack.pushPose();
-                        poseStack.translate(vec.x, vec.y, vec.z);
-                        Quaterniond rot = new Vector3d(0, vec.y, 0).rotationTo(vec, new Quaterniond());
-                        poseStack.mulPose(rot.get(new Quaternionf()));
-                        float scale = 5;
-                        poseStack.scale(scale, scale, scale);
-
-                        builder.vertex(poseStack.last().pose(), 0, 0, 0).color(0xFFFFFFFF).endVertex();
-                        builder.vertex(poseStack.last().pose(), 1, 0, 0).color(0xFFFFFFFF).endVertex();
-                        builder.vertex(poseStack.last().pose(), 1, 0, 1).color(0xFFFFFFFF).endVertex();
-                        builder.vertex(poseStack.last().pose(), 0, 0, 1).color(0xFFFFFFFF).endVertex();
-
-                        poseStack.popPose();
-                    }
-                }
 
                 starsBuffer.bind();
-                starsBuffer.upload(builder.end());
+                starsBuffer.upload(drawStars(builder));
                 VertexBuffer.unbind();
             }
 
@@ -113,7 +75,7 @@ public final class LunarNetherClient {
 
             @Override
             public boolean isFoggyAt(int pX, int pY) {
-                return pY < 128;
+                return true;
             }
 
             @Override
@@ -121,91 +83,154 @@ public final class LunarNetherClient {
                 if (camera.getPosition().y < 128) {
                     return false;
                 }
-                RenderSystem.depthMask(false);
+
+                // render sky
                 RenderSystem.setShader(GameRenderer::getPositionShader);
-                ShaderInstance shaderinstance = RenderSystem.getShader();
-                RenderSystem.setShaderColor(0, 0, 0, 1);
+                ShaderInstance posShader = RenderSystem.getShader();
+                if (posShader != null) {
+                    RenderSystem.setShaderColor(0, 0, 0, 1);
+                    skyBuffer.bind();
+                    skyBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, posShader);
+                    VertexBuffer.unbind();
+                    RenderSystem.setShaderColor(1, 1, 1, 1);
+                }
 
-                poseStack.pushPose();
-
-                poseStack.pushPose();
-                topHalfBuffer.bind();
-                topHalfBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
-                VertexBuffer.unbind();
-                bottomHalfBuffer.bind();
-                bottomHalfBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, shaderinstance);
-                VertexBuffer.unbind();
-                poseStack.popPose();
-
-                RenderSystem.setShader(GameRenderer::getPositionColorShader);
-                RenderSystem.setShaderColor(1, 1, 1, 1);
                 Tesselator tesselator = Tesselator.getInstance();
                 BufferBuilder builder = tesselator.getBuilder();
 
+                // setup for sun and stars
                 poseStack.pushPose();
-                builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
-                RandomSource random = RandomSource.create(0xAAAAA);
+                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
+                // rotate for time of day
+                poseStack.mulPose(Axis.XP.rotationDegrees(LunarTimeData.netherTimeOfDay(netherDayTime) * 360.0F));
 
-                for (int i = 0; i < 1500; i++) {
-                    Vector3d vec = new Vector3d(random.nextFloat() * 2d - 1d, random.nextFloat() * 2d - 1d, random.nextFloat() * 2d - 1d);
-                    double lenSquared = vec.lengthSquared();
-                    if (lenSquared < 1.0 && lenSquared > 0.01) {
-                        vec.mul(1.0 / Math.sqrt(lenSquared)).mul(500);
-
-                        poseStack.pushPose();
-                        poseStack.translate(vec.x, vec.y, vec.z);
-                        Quaterniond rot = new Vector3d(0, vec.y, 0).rotationTo(vec, new Quaterniond());
-                        poseStack.mulPose(rot.get(new Quaternionf()));
-                        float scale = (random.nextInt(10)+1) % 5;
-                        poseStack.scale(scale, scale, scale);
-                        int color = ColorUtil.getTemperatureColor(random.nextInt(1000, 40000));
-
-                        builder.vertex(poseStack.last().pose(), 0, 5, 0).color(color).endVertex();
-                        builder.vertex(poseStack.last().pose(), 1, 5, 0).color(color).endVertex();
-                        builder.vertex(poseStack.last().pose(), 1, 5, 1).color(color).endVertex();
-                        builder.vertex(poseStack.last().pose(), 0, 5, 1).color(color).endVertex();
-
-                        poseStack.popPose();
-                    }
+                // render stars
+                RenderSystem.setShader(GameRenderer::getPositionColorShader);
+                ShaderInstance posColorShader = RenderSystem.getShader();
+                if (posColorShader != null) {
+                    starsBuffer.bind();
+                    starsBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, posColorShader);
+                    VertexBuffer.unbind();
                 }
-                tesselator.end();
-                poseStack.popPose();
 
-                poseStack.pushPose();
+                // render sun
+                float sunSize = 30f;
                 RenderSystem.enableBlend();
                 RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
                 RenderSystem.setShader(GameRenderer::getPositionTexShader);
-                RenderSystem.setShaderTexture(0, LunarNether.id("textures/environment/overworld_phases_glow.png"));
-
-                float size = 20f;
-                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
-                poseStack.translate(0, 99, 0);
-                Matrix4f pose = poseStack.last().pose();
+                RenderSystem.setShaderTexture(0, SUN_LOCATION);
+                Matrix4f sunPose = poseStack.last().pose();
                 builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                builder.vertex(pose, -size, 1, -size).uv(0, 0).endVertex();
-                builder.vertex(pose, size, 1, -size).uv(1, 0).endVertex();
-                builder.vertex(pose, size, 1, size).uv(1, 1).endVertex();
-                builder.vertex(pose, -size, 1, size).uv(0, 1).endVertex();
+                builder.vertex(sunPose, -sunSize, 101, -sunSize).uv(0, 0).endVertex();
+                builder.vertex(sunPose, sunSize, 101, -sunSize).uv(1, 0).endVertex();
+                builder.vertex(sunPose, sunSize, 101, sunSize).uv(1, 1).endVertex();
+                builder.vertex(sunPose, -sunSize, 101, sunSize).uv(0, 1).endVertex();
                 tesselator.end();
 
-                RenderSystem.blendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                RenderSystem.setShader(GameRenderer::getPositionTexShader);
-                RenderSystem.setShaderTexture(0, LunarNether.id("textures/environment/overworld_phases.png"));
+                // pop sky rotation
+                poseStack.popPose();
 
+                // setup for earth
+                poseStack.pushPose();
+                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
+                poseStack.mulPose(Axis.XP.rotationDegrees(115.0F));
+
+                // render earth
+                float earthSize = 20f;
+                RenderSystem.defaultBlendFunc();
+                RenderSystem.setShaderTexture(0, EARTH_LOCATION);
+                Matrix4f earthPose = poseStack.last().pose();
                 float uvWidth = 32f / 128f;
                 float uvHeight = 32f / 64f;
                 builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                builder.vertex(pose, -size, 1, -size).uv(0, 0).endVertex();
-                builder.vertex(pose, size, 1, -size).uv(uvWidth, 0).endVertex();
-                builder.vertex(pose, size, 1, size).uv(uvWidth, uvHeight).endVertex();
-                builder.vertex(pose, -size, 1, size).uv(0, uvHeight).endVertex();
+                builder.vertex(earthPose, -earthSize, -100, earthSize).uv(0, 0).endVertex();
+                builder.vertex(earthPose, earthSize, -100, earthSize).uv(uvWidth, 0).endVertex();
+                builder.vertex(earthPose, earthSize, -100, -earthSize).uv(uvWidth, uvHeight).endVertex();
+                builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(0, uvHeight).endVertex();
                 tesselator.end();
-                poseStack.popPose();
 
+                // pop earth position
                 poseStack.popPose();
-                RenderSystem.depthMask(true);
                 return true;
             }
         });
+    }
+
+    private static BufferBuilder.RenderedBuffer drawSky(BufferBuilder builder) {
+        builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
+
+        // draw a black cube instead of the default sky
+        builder.vertex(-1, -1, -1).endVertex();
+        builder.vertex(-1, -1, 1).endVertex();
+        builder.vertex(1, -1, 1).endVertex();
+        builder.vertex(1, -1, -1).endVertex();
+
+        builder.vertex(-1, 1, -1).endVertex();
+        builder.vertex(-1, -1, -1).endVertex();
+        builder.vertex(1, -1, -1).endVertex();
+        builder.vertex(1, 1, -1).endVertex();
+
+        builder.vertex(-1, -1, 1).endVertex();
+        builder.vertex(-1, 1, 1).endVertex();
+        builder.vertex(1, 1, 1).endVertex();
+        builder.vertex(1, -1, 1).endVertex();
+
+        builder.vertex(1, -1, -1).endVertex();
+        builder.vertex(1, -1, 1).endVertex();
+        builder.vertex(1, 1, 1).endVertex();
+        builder.vertex(1, 1, -1).endVertex();
+
+        builder.vertex(-1, -1, 1).endVertex();
+        builder.vertex(-1, -1, -1).endVertex();
+        builder.vertex(-1, 1, -1).endVertex();
+        builder.vertex(-1, 1, 1).endVertex();
+
+        builder.vertex(-1, 1, 1).endVertex();
+        builder.vertex(-1, 1, -1).endVertex();
+        builder.vertex(1, 1, -1).endVertex();
+        builder.vertex(1, 1, 1).endVertex();
+
+        return builder.end();
+    }
+
+    private static BufferBuilder.RenderedBuffer drawStars(BufferBuilder builder) {
+        builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
+        RandomSource random = RandomSource.create(0xAAAAA);
+        // copied from vanilla, no clue what all these variables are
+        for(int i = 0; i < 4500; ++i) {
+            Vector3d vec = new Vector3d(random.nextFloat() * 2 - 1, random.nextFloat() * 2 - 1, random.nextFloat() * 2 - 1);
+            double size = 0.15F + random.nextFloat() * 0.1F;
+            double lenSquared = vec.lengthSquared();
+            if (lenSquared < 1.0D && lenSquared > 0.01D) {
+                lenSquared = 1.0D / Math.sqrt(lenSquared);
+                vec.mul(lenSquared);
+                Vector3d scaledVec = new Vector3d(vec).mul(100);
+                double d8 = Math.atan2(vec.x, vec.z);
+                double d9 = Math.sin(d8);
+                double d10 = Math.cos(d8);
+                double d11 = Math.atan2(Math.sqrt(vec.x * vec.x + vec.z * vec.z), vec.y);
+                double d12 = Math.sin(d11);
+                double d13 = Math.cos(d11);
+                double d14 = random.nextDouble() * Mth.TWO_PI;
+                double d15 = Math.sin(d14);
+                double d16 = Math.cos(d14);
+
+                int color = ColorUtil.getTemperatureColor(random.nextInt(1000, 40000));
+
+                for(int j = 0; j < 4; ++j) {
+                    double d18 = (double)((j & 2) - 1) * size;
+                    double d19 = (double)((j + 1 & 2) - 1) * size;
+                    double d21 = d18 * d16 - d19 * d15;
+                    double d22 = d19 * d16 + d18 * d15;
+                    double d23 = d21 * d12;
+                    double d24 = -d21 * d13;
+                    double d25 = d24 * d9 - d22 * d10;
+                    double d26 = d22 * d9 + d24 * d10;
+                    builder.vertex(scaledVec.x + d25, scaledVec.y + d23, scaledVec.z + d26).color(color).endVertex();
+                }
+            }
+        }
+
+        return builder.end();
     }
 }

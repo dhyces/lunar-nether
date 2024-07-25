@@ -107,6 +107,10 @@ mixin {
     add sourceSets.main, "biomeextensions.refmap.json"
 
     config 'biomeextensions.mixins.json'
+
+    add sourceSets.main, "lunarnether.refmap.json"
+
+    config 'lunarnether.mixins.json'
 }
 
 tasks.withType(ProcessResources).configureEach {
