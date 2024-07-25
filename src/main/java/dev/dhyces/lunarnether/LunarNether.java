@@ -73,7 +73,7 @@ public class LunarNether {
     }
 
     private void onLevelTick(final TickEvent.LevelTickEvent event) {
-        if (event.level instanceof ServerLevel level && level.dimension() == Level.NETHER) {
+        if (event.phase == TickEvent.Phase.END && event.level instanceof ServerLevel level && level.dimension() == Level.NETHER) {
             LunarTimeData.getOrCreate(level).update(level.dayTime());
         }
     }

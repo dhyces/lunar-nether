@@ -21,6 +21,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import org.jetbrains.annotations.Nullable;
 import org.joml.*;
 
 import java.lang.Math;
@@ -76,6 +77,12 @@ public final class LunarNetherClient {
             @Override
             public boolean isFoggyAt(int pX, int pY) {
                 return true;
+            }
+
+            @Nullable
+            @Override
+            public float[] getSunriseColor(float pTimeOfDay, float pPartialTicks) {
+                return null;
             }
 
             @Override

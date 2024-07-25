@@ -35,9 +35,8 @@ public class LunarTimeData extends SavedData {
     }
 
     public void update(long overworldDaytime) {
-        long newDaytime = overworldDaytime / 8;
-        if (daytime != newDaytime) {
-            daytime = newDaytime;
+        if (daytime != overworldDaytime) {
+            daytime = overworldDaytime;
             LunarNetherNetwork.sendToPlayersInLevel(dimension, new SyncLunarTimeS2CPacket(daytime));
             setDirty();
         }
