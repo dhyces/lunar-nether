@@ -76,7 +76,7 @@ public final class LunarNetherClient {
 
             @Override
             public boolean isFoggyAt(int pX, int pY) {
-                return true;
+                return pY < 128;
             }
 
             @Nullable
@@ -166,52 +166,58 @@ public final class LunarNetherClient {
     private static BufferBuilder.RenderedBuffer drawSky(BufferBuilder builder) {
         builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION);
 
+        int distance = 2000;
+
         // draw a black cube instead of the default sky
-        builder.vertex(-1, -1, -1).endVertex();
-        builder.vertex(-1, -1, 1).endVertex();
-        builder.vertex(1, -1, 1).endVertex();
-        builder.vertex(1, -1, -1).endVertex();
+        builder.vertex(-distance, -distance, -distance).endVertex();
+        builder.vertex(-distance, -distance, distance).endVertex();
+        builder.vertex(distance, -distance, distance).endVertex();
+        builder.vertex(distance, -distance, -distance).endVertex();
 
-        builder.vertex(-1, 1, -1).endVertex();
-        builder.vertex(-1, -1, -1).endVertex();
-        builder.vertex(1, -1, -1).endVertex();
-        builder.vertex(1, 1, -1).endVertex();
+        builder.vertex(-distance, distance, -distance).endVertex();
+        builder.vertex(-distance, -distance, -distance).endVertex();
+        builder.vertex(distance, -distance, -distance).endVertex();
+        builder.vertex(distance, distance, -distance).endVertex();
 
-        builder.vertex(-1, -1, 1).endVertex();
-        builder.vertex(-1, 1, 1).endVertex();
-        builder.vertex(1, 1, 1).endVertex();
-        builder.vertex(1, -1, 1).endVertex();
+        builder.vertex(-distance, -distance, distance).endVertex();
+        builder.vertex(-distance, distance, distance).endVertex();
+        builder.vertex(distance, distance, distance).endVertex();
+        builder.vertex(distance, -distance, distance).endVertex();
 
-        builder.vertex(1, -1, -1).endVertex();
-        builder.vertex(1, -1, 1).endVertex();
-        builder.vertex(1, 1, 1).endVertex();
-        builder.vertex(1, 1, -1).endVertex();
+        builder.vertex(distance, -distance, -distance).endVertex();
+        builder.vertex(distance, -distance, distance).endVertex();
+        builder.vertex(distance, distance, distance).endVertex();
+        builder.vertex(distance, distance, -distance).endVertex();
 
-        builder.vertex(-1, -1, 1).endVertex();
-        builder.vertex(-1, -1, -1).endVertex();
-        builder.vertex(-1, 1, -1).endVertex();
-        builder.vertex(-1, 1, 1).endVertex();
+        builder.vertex(-distance, -distance, distance).endVertex();
+        builder.vertex(-distance, -distance, -distance).endVertex();
+        builder.vertex(-distance, distance, -distance).endVertex();
+        builder.vertex(-distance, distance, distance).endVertex();
 
-        builder.vertex(-1, 1, 1).endVertex();
-        builder.vertex(-1, 1, -1).endVertex();
-        builder.vertex(1, 1, -1).endVertex();
-        builder.vertex(1, 1, 1).endVertex();
+        builder.vertex(-distance, distance, distance).endVertex();
+        builder.vertex(-distance, distance, -distance).endVertex();
+        builder.vertex(distance, distance, -distance).endVertex();
+        builder.vertex(distance, distance, distance).endVertex();
 
         return builder.end();
     }
 
     private static BufferBuilder.RenderedBuffer drawStars(BufferBuilder builder) {
         builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
+
+        int distance = 1000;
+
         RandomSource random = RandomSource.create(0xAAAAA);
         // copied from vanilla, no clue what all these variables are
         for(int i = 0; i < 4500; ++i) {
             Vector3d vec = new Vector3d(random.nextFloat() * 2 - 1, random.nextFloat() * 2 - 1, random.nextFloat() * 2 - 1);
             double size = 0.15F + random.nextFloat() * 0.1F;
+            size *= (distance / 100F);
             double lenSquared = vec.lengthSquared();
             if (lenSquared < 1.0D && lenSquared > 0.01D) {
                 lenSquared = 1.0D / Math.sqrt(lenSquared);
                 vec.mul(lenSquared);
-                Vector3d scaledVec = new Vector3d(vec).mul(100);
+                Vector3d scaledVec = new Vector3d(vec).mul(distance);
                 double d8 = Math.atan2(vec.x, vec.z);
                 double d9 = Math.sin(d8);
                 double d10 = Math.cos(d8);
