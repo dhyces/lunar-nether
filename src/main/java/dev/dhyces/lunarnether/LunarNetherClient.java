@@ -144,16 +144,21 @@ public final class LunarNetherClient {
 
                 // render earth
                 float earthSize = 20f;
+                int phase = (int)(netherDayTime / 192000L % 8L + 8L) % 8;
+                int x = phase % 4;
+                int y = phase / 4 % 2;
+                float minU = (float) (x) / 4.0F;
+                float minV = (float) (y) / 2.0F;
+                float maxU = (float) (x + 1) / 4.0F;
+                float maxV = (float) (y + 1) / 2.0F;
                 RenderSystem.defaultBlendFunc();
                 RenderSystem.setShaderTexture(0, EARTH_LOCATION);
                 Matrix4f earthPose = poseStack.last().pose();
-                float uvWidth = 32f / 128f;
-                float uvHeight = 32f / 64f;
                 builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                builder.vertex(earthPose, -earthSize, -100, earthSize).uv(0, 0).endVertex();
-                builder.vertex(earthPose, earthSize, -100, earthSize).uv(uvWidth, 0).endVertex();
-                builder.vertex(earthPose, earthSize, -100, -earthSize).uv(uvWidth, uvHeight).endVertex();
-                builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(0, uvHeight).endVertex();
+                builder.vertex(earthPose, -earthSize, -100, earthSize).uv(maxU, maxV).endVertex();
+                builder.vertex(earthPose, earthSize, -100, earthSize).uv(minU, maxV).endVertex();
+                builder.vertex(earthPose, earthSize, -100, -earthSize).uv(minU, minV).endVertex();
+                builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(maxU, minV).endVertex();
                 tesselator.end();
 
                 // pop earth position
