@@ -144,7 +144,7 @@ public final class LunarNetherClient {
 
                 // render earth
                 float earthSize = 20f;
-                int phase = (int)(netherDayTime / 192000L % 8L + 8L) % 8;
+                int phase = (int)(netherDayTime / 24000L % 8L + 8L) % 8;
                 int x = phase % 4;
                 int y = phase / 4 % 2;
                 float minU = (float) (x) / 4.0F;
