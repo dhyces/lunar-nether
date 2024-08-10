@@ -140,9 +140,9 @@ public final class LunarNetherClient {
                 // setup for earth
                 poseStack.pushPose();
                 //probably something to do with making it appear in the west instead of the north or south -90 = west.
-                poseStack.mulPose(Axis.YP.rotationDegrees(-75));
+                poseStack.mulPose(Axis.YP.rotationDegrees(-60));
                 //probably how many degrees up from the west is it, 0 is below you.
-                poseStack.mulPose(Axis.XP.rotationDegrees(135.0F));
+                poseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
 
                 // render earth
                 float earthSize = 20f;
