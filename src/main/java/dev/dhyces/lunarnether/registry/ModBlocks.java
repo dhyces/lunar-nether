@@ -43,6 +43,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CUT_TITANIUM = REGISTRY.register("cut_titanium", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(8.0F, 25.0F).mapColor(MapColor.METAL)));
     public static final RegistryObject<Block> CUT_TITANIUM_STAIRS = REGISTRY.register("cut_titanium_stairs", () -> new StairBlock(() -> CUT_TITANIUM.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(8.0F, 25.0F).mapColor(MapColor.METAL)));
     public static final RegistryObject<Block> CUT_TITANIUM_SLAB = REGISTRY.register("cut_titanium_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(8.0F, 25.0F).mapColor(MapColor.METAL)));
-    public static final RegistryObject<Block> CUT_TITANIUM_WALL = REGISTRY.register("cut_titanium_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(8.0F, 25.0F).mapColor(MapColor.METAL)));
+    //Removed for consistiency with copper
+    //public static final RegistryObject<Block> CUT_TITANIUM_WALL = REGISTRY.register("cut_titanium_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(8.0F, 25.0F).mapColor(MapColor.METAL)));
 
 }

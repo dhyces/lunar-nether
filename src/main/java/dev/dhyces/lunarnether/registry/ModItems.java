@@ -38,7 +38,8 @@ public class ModItems {
     public static final RegistryObject<Item> CUT_TITANIUM = registerBlockItem("cut_titanium", ModBlocks.CUT_TITANIUM);
     public static final RegistryObject<Item> CUT_TITANIUM_STAIRS = registerBlockItem("cut_titanium_stairs", ModBlocks.CUT_TITANIUM_STAIRS);
     public static final RegistryObject<Item> CUT_TITANIUM_SLAB = registerBlockItem("cut_titanium_slab", ModBlocks.CUT_TITANIUM_SLAB);
-    public static final RegistryObject<Item> CUT_TITANIUM_WALL = registerBlockItem("cut_titanium_wall", ModBlocks.CUT_TITANIUM_WALL);
+    //removed for consistiency with vanilla
+    //public static final RegistryObject<Item> CUT_TITANIUM_WALL = registerBlockItem("cut_titanium_wall", ModBlocks.CUT_TITANIUM_WALL);
 
     public static final RegistryObject<Item> RAW_ILMENITE = REGISTRY.register("raw_ilmenite", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TITANIUM_INGOT = REGISTRY.register("titanium_ingot", () -> new Item(new Item.Properties()));
