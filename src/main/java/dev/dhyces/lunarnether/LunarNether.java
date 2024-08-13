@@ -54,6 +54,7 @@ public class LunarNether {
         }
     }
 
+    //I have no idea how this works. It looks like it should be easy to change to putting things in a tab, but no one does that in tutorials.
     private void addItemsToTabs(final BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.SEARCH) {
             ModItems.REGISTRY.getEntries().forEach(item -> event.accept(item, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY));

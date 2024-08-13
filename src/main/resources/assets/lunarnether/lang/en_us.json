@@ -26,5 +26,7 @@
   "lunarnether.trim_material.ilmenite": "Ilmenite Material",
   "lunarnether.trim_material.titanium": "Titanium Material", 
 
-  "biome.lunarnether.outrocks": "Outrocks"
+  "biome.lunarnether.outrocks": "Outrocks",
+
+  "creativetab.moon_tab": "Moon Items"
 }
