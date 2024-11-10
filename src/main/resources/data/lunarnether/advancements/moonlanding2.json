@@ -36,11 +36,6 @@
       }
     }
   },
-  "requirements": [
-    [
-      "moonlanding"
-    ]
-  ],
   "rewards": {
     "experience": 10
   }
