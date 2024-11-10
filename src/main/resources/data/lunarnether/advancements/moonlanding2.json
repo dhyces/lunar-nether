@@ -1,0 +1,49 @@
+{
+  "display": {
+    "icon": {
+      "item": "minecraft:rabbit_foot"
+    },
+    "title": {
+      "translate": "advancements.lunarnnether.moonlanding2.title"
+      //"...One giant leap for Minerkind!"
+    },
+    "description": {
+      "translate": "advancements.lunarnnether.moonlanding2.description"
+      //"Do a big jump on the moon"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "parent": "lunarnether:moonlanding",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:fall_from_height",
+      "conditions": {
+        "player": {
+          "location": {
+            "biome": "lunarnether:outrocks"
+          },
+          "effects": {
+            "minecraft:jump_boost": {}
+          }
+        },
+        "start_position": {
+          "biome": "lunarnether:outrocks"
+        },
+        "distance": {
+          "absolute": 1
+        }
+      }
+    }
+  },
+  "requirements": [
+    [
+      "lunarnether:moonlanding"
+    ]
+  ],
+  "rewards": {
+    "experience": 10
+  }
+}

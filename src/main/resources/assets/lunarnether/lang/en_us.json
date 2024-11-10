@@ -26,6 +26,11 @@
   "lunarnether.trim_material.ilmenite": "Ilmenite Material",
   "lunarnether.trim_material.titanium": "Titanium Material", 
 
+  "advancements.lunarnnether.moonlanding.title": "One small step for Steve...",
+  "advancements.lunarnnether.moonlanding.description": "Step foot on the lunar surface",
+  "advancements.lunarnnether.moonlanding2.title": "...One giant leap for Minerkind!",
+  "advancements.lunarnnether.moonlanding2.description": "Do a big jump on the moon",
+
   "biome.lunarnether.outrocks": "Outrocks",
 
   "creativetab.moon_tab": "Moon Items"
