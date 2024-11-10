@@ -27,8 +27,11 @@
             "minecraft:jump_boost": {}
           }
         },
+        "start_position": {
+          "biome": "lunarnether:outrocks"
+        },
         "distance": {
-          "y": 1.25
+          "absolute": 1.25
         }
       }
     }
