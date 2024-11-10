@@ -38,7 +38,7 @@
   },
   "requirements": [
     [
-      "lunarnether:moonlanding"
+      "moonlanding"
     ]
   ],
   "rewards": {
