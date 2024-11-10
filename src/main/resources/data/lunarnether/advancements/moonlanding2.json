@@ -16,27 +16,33 @@
   },
   "parent": "lunarnether:moonlanding",
   "criteria": {
-    "requirement": {
+    "fall_from_world_height": {
       "trigger": "minecraft:fall_from_height",
       "conditions": {
-        "player": {
-          "location": {
-            "biome": "lunarnether:outrocks"
-          },
-          "effects": {
-            "minecraft:jump_boost": {}
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "lunarnether:outrocks"
+              },
+              "effects": {
+                "minecraft:jump_boost": {}
+              }
+            }
           }
-        },
-        "start_position": {
-          "biome": "lunarnether:outrocks"
-        },
+        ],
         "distance": {
-          "absolute": 1.25
+          "y": {
+            "min": 1
+          }
         }
       }
     }
   },
   "rewards": {
     "experience": 10
-  }
+  },
+  "sends_telemetry_event": true
 }
