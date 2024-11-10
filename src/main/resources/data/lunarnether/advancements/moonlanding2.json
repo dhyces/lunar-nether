@@ -16,7 +16,7 @@
   },
   "parent": "lunarnether:moonlanding",
   "criteria": {
-    "fall_from_world_height": {
+    "giant_leap": {
       "trigger": "minecraft:fall_from_height",
       "conditions": {
         "player": [
