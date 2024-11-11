@@ -34,16 +34,16 @@ public class ModBlocks {
 
     //Ilmenite
     public static final RegistryObject<Block> ILMENITE_ORE = REGISTRY.register("ilmenite_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.DEEPSLATE_DIAMOND_ORE).mapColor(MapColor.STONE)));
-    public static final RegistryObject<Block> RAW_ILMENITE_BLOCK = REGISTRY.register("raw_ilmenite_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).strength(2.0F, 10.0F)));
+    public static final RegistryObject<Block> RAW_ILMENITE_BLOCK = REGISTRY.register("raw_ilmenite_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK).strength(2.0F, 16.0F)));
 
     //Titanium
-    public static final RegistryObject<Block> TITANIUM_BLOCK = REGISTRY.register("titanium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 10.0F).mapColor(MapColor.METAL)));
+    public static final RegistryObject<Block> TITANIUM_BLOCK = REGISTRY.register("titanium_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
 
     //Cut Titanium
-    public static final RegistryObject<Block> CUT_TITANIUM = REGISTRY.register("cut_titanium", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 10.0F).mapColor(MapColor.METAL)));
-    public static final RegistryObject<Block> CUT_TITANIUM_STAIRS = REGISTRY.register("cut_titanium_stairs", () -> new StairBlock(() -> CUT_TITANIUM.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 10.0F).mapColor(MapColor.METAL)));
-    public static final RegistryObject<Block> CUT_TITANIUM_SLAB = REGISTRY.register("cut_titanium_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 10.0F).mapColor(MapColor.METAL)));
+    public static final RegistryObject<Block> CUT_TITANIUM = REGISTRY.register("cut_titanium", () -> new Block(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final RegistryObject<Block> CUT_TITANIUM_STAIRS = REGISTRY.register("cut_titanium_stairs", () -> new StairBlock(() -> CUT_TITANIUM.get().defaultBlockState(), BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final RegistryObject<Block> CUT_TITANIUM_SLAB = REGISTRY.register("cut_titanium_slab", () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
     //Removed for consistiency with copper
-    //public static final RegistryObject<Block> CUT_TITANIUM_WALL = REGISTRY.register("cut_titanium_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 10.0F).mapColor(MapColor.METAL)));
+    //public static final RegistryObject<Block> CUT_TITANIUM_WALL = REGISTRY.register("cut_titanium_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
 
 }
