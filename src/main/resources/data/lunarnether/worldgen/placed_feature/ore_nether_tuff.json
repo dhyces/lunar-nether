@@ -13,19 +13,14 @@
       "type": "minecraft:in_square"
     },
     {
-      "type": "minecraft:random_offset",
-      "xz_spread": 3,
-      "y_spread": 0
-    },
-    {
       "type": "minecraft:height_range",
       "height": {
         "type": "minecraft:uniform",
         "max_inclusive": {
-          "absolute": 128
+          "absolute": 132
         },
         "min_inclusive": {
-          "absolute": 125
+          "absolute": 128
         }
       }
     },
