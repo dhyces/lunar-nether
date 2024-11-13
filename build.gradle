@@ -14,14 +14,6 @@ base {
     archivesName = mod_id
 }
 
-sourceSets {
-    main
-    datagen {
-        compileClasspath = main.compileClasspath + main.output
-        runtimeClasspath = main.runtimeClasspath + main.output
-    }
-}
-
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
@@ -62,12 +54,6 @@ minecraft {
 
         data {
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.datagen
-                }
-            }
         }
     }
 }
