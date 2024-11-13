@@ -45,6 +45,8 @@ public class ModItems {
     public static final RegistryObject<Item> TITANIUM_INGOT = REGISTRY.register("titanium_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TITANIUM_NUGGET = REGISTRY.register("titanium_nugget", () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> LUNAR_CLOCK = REGISTRY.register("lunar_clock", () -> new Item(new Item.Properties()));
+
 
 
     private static RegistryObject<Item> registerBlockItem(String id, Supplier<Block> blockSupplier) {

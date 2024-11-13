@@ -1,0 +1,50 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "lunarnether:item/titanium_ingot"
+  },
+  "overrides": [
+    {
+      "model": "lunarnether:item/cut_polished_lunar_stone",
+      "predicate": {
+        "lunarnether:moon_phase": 0.125
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_polished_lunar_stone_slab",
+      "predicate": {
+        "lunarnether:moon_phase": 0.25
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_polished_lunar_stone_stairs",
+      "predicate": {
+        "lunarnether:moon_phase": 0.375
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_polished_lunar_stone_wall",
+      "predicate": {
+        "lunarnether:moon_phase": 0.5
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_titanium",
+      "predicate": {
+        "lunarnether:moon_phase": 0.625
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_titanium_slab",
+      "predicate": {
+        "lunarnether:moon_phase": 0.75
+      }
+    },
+    {
+      "model": "lunarnether:item/cut_titanium_stairs",
+      "predicate": {
+        "lunarnether:moon_phase": 0.875
+      }
+    }
+  ]
+}

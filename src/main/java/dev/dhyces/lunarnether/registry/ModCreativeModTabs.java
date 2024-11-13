@@ -47,7 +47,6 @@ public class ModCreativeModTabs {
             pOutput.accept(ModItems.RAW_ILMENITE.get());
             pOutput.accept(ModItems.TITANIUM_INGOT.get());
             pOutput.accept(ModItems.TITANIUM_NUGGET.get());
-
         })
         .build());
 }
