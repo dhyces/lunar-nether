@@ -1,47 +1,47 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "lunarnether:item/titanium_ingot"
+    "layer0": "lunarnether:item/moon_clock_0"
   },
   "overrides": [
     {
-      "model": "lunarnether:item/cut_polished_lunar_stone",
+      "model": "lunarnether:item/moon_clock_7",
       "predicate": {
         "lunarnether:moon_phase": 0.125
       }
     },
     {
-      "model": "lunarnether:item/cut_polished_lunar_stone_slab",
+      "model": "lunarnether:item/moon_clock_6",
       "predicate": {
         "lunarnether:moon_phase": 0.25
       }
     },
     {
-      "model": "lunarnether:item/cut_polished_lunar_stone_stairs",
+      "model": "lunarnether:item/moon_clock_5",
       "predicate": {
         "lunarnether:moon_phase": 0.375
       }
     },
     {
-      "model": "lunarnether:item/cut_polished_lunar_stone_wall",
+      "model": "lunarnether:item/moon_clock_4",
       "predicate": {
         "lunarnether:moon_phase": 0.5
       }
     },
     {
-      "model": "lunarnether:item/cut_titanium",
+      "model": "lunarnether:item/moon_clock_3",
       "predicate": {
         "lunarnether:moon_phase": 0.625
       }
     },
     {
-      "model": "lunarnether:item/cut_titanium_slab",
+      "model": "lunarnether:item/moon_clock_2",
       "predicate": {
         "lunarnether:moon_phase": 0.75
       }
     },
     {
-      "model": "lunarnether:item/cut_titanium_stairs",
+      "model": "lunarnether:item/moon_clock_1",
       "predicate": {
         "lunarnether:moon_phase": 0.875
       }

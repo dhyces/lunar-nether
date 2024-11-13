@@ -23,8 +23,10 @@
   "item.lunarnether.raw_ilmenite": "Ilmenite", 
   "item.lunarnether.titanium_ingot": "Titanium Ingot",
   "item.lunarnether.titanium_nugget": "Titanium Nugget",
+  "item.lunarnether.lunar_clock": "Phase Clock",
+
   "lunarnether.trim_material.ilmenite": "Ilmenite Material",
-  "lunarnether.trim_material.titanium": "Titanium Material", 
+  "lunarnether.trim_material.titanium": "Titanium Material",
 
   "advancements.lunarnnether.moonlanding.title": "One small step for Steve...",
   "advancements.lunarnnether.moonlanding.description": "Step foot on the lunar surface",

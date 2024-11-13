@@ -49,7 +49,7 @@ public final class LunarNetherClient {
     private static void registerItemProperties(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemProperties.register(ModItems.LUNAR_CLOCK.get(), LunarNether.id("moon_phase"), (pStack, pLevel, pEntity, pSeed) ->
-                pLevel == null ? 0 : pLevel.dimensionType().moonPhase(netherDayTime) / 8f
+                pLevel == null ? 0 : pLevel.getMoonPhase() / 8f
             );
         });
     }
