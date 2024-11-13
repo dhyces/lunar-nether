@@ -43,21 +43,12 @@ public class LunarNether {
         BiomeModifierTypes.REGISTER.register(modBus);
         FeatureRegistry.FEATURES.register(modBus);
 
-        modBus.addListener(this::addItemsToTabs);
-
         forgeBus.addListener(this::onLevelLoaded);
         forgeBus.addListener(this::onLevelUnloaded);
         forgeBus.addListener(this::onLevelTick);
 
         if (FMLLoader.getDist().isClient()) {
             LunarNetherClient.register(modBus, forgeBus);
-        }
-    }
-
-    //I have no idea how this works. It looks like it should be easy to change to putting things in a tab, but no one does that in tutorials.
-    private void addItemsToTabs(final BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.SEARCH) {
-            ModItems.REGISTRY.getEntries().forEach(item -> event.accept(item, CreativeModeTab.TabVisibility.SEARCH_TAB_ONLY));
         }
     }
 
