@@ -1,14 +1,23 @@
 [
   {
+    "__comment": "Allow time to pass",
     "op": "remove",
     "path": "/fixed_time"
   },
   {
+    "__comment": "Does not have a logical ceiling",
     "op": "replace",
     "path": "/has_ceiling",
     "value": false
   },
   {
+    "__comment": "Allow skylight, so the surface is nice and bright during the day",
+    "op": "replace",
+    "path": "/has_skylight",
+    "value": true
+  },
+  {
+    "__comment": "Increase logical height to 255 (only used for portals iirc? so maybe this should remain vanilla)",
     "op": "replace",
     "path": "/logical_height",
     "value": 255

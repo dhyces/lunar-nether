@@ -6,6 +6,7 @@
     "value": 192
   },
   {
+    "__comment": "Makes the continents noise increase up to the beginning of the moon stuff, used for surface biomes",
     "op": "replace",
     "path": "/noise_router/continents",
     "value": {
