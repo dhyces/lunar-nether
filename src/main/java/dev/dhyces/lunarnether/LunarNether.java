@@ -2,7 +2,6 @@ package dev.dhyces.lunarnether;
 
 import dev.dhyces.biomeextensions.BiomeExtensionsMod;
 import dev.dhyces.lunarnether.networking.LunarNetherNetwork;
-import dev.dhyces.lunarnether.region.MoonRegion;
 import dev.dhyces.lunarnether.registry.*;
 import dev.dhyces.lunarnether.server.LunarTimeData;
 import net.minecraft.resources.ResourceLocation;
@@ -13,12 +12,10 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import terrablender.api.Regions;
 
 @Mod(LunarNether.MODID)
 public class LunarNether {
@@ -42,7 +39,6 @@ public class LunarNether {
         BiomeModifierTypes.REGISTER.register(modBus);
         FeatureRegistry.FEATURES.register(modBus);
 
-        modBus.addListener(this::addTerraBlenderRegion);
 
         forgeBus.addListener(this::onLevelLoaded);
         forgeBus.addListener(this::onLevelUnloaded);
@@ -51,12 +47,6 @@ public class LunarNether {
         if (FMLLoader.getDist().isClient()) {
             LunarNetherClient.register(modBus, forgeBus);
         }
-    }
-
-    private void addTerraBlenderRegion(final FMLCommonSetupEvent event) {
-        event.enqueueWork(() -> {
-            Regions.register(new MoonRegion());
-        });
     }
 
     private void onLevelLoaded(final LevelEvent.Load event) {
