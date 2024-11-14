@@ -213,7 +213,7 @@
               "then_run": {
                 "type": "minecraft:block",
                 "result_state": {
-                  "Name": "minecraft:stone"
+                  "Name": "lunarnether:astralith"
                 }
               }
             }

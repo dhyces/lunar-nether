@@ -46,4 +46,6 @@ public class ModBlocks {
     //Removed for consistiency with copper
     //public static final RegistryObject<Block> CUT_TITANIUM_WALL = REGISTRY.register("cut_titanium_wall", () -> new WallBlock(BlockBehaviour.Properties.copy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
 
+    //Astrolith
+    public static final RegistryObject<Block> ASTRALITH = REGISTRY.register("astralith", () -> new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS).strength(30.0F, 600.0F).mapColor(MapColor.TERRACOTTA_CYAN)));
 }

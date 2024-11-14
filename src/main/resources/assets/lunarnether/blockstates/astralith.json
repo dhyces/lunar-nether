@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "lunarnether:block/astralith_1"
+      },
+      {
+        "model": "lunarnether:block/astralith_2"
+      },
+      {
+        "model": "lunarnether:block/astralith_3"
+      },
+      {
+        "model": "lunarnether:block/astralith_4"
+      }
+    ]
+  }
+}

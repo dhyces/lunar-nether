@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "item": "lunarnether:titanium_ingot"
+    },
+    "R": {
+      "item": "minecraft:redstone_dust"
+    },
+    "L": {
+      "item": "lunarnether:lunar_stone"
+    }
+  },
+  "pattern": [
+    " #R",
+    "#L#",
+    " # "
+  ],
+  "result": {
+    "item": "lunarnether:lunar_clock"
+  },
+  "show_notification": true
+}
