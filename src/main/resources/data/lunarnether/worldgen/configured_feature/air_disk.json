@@ -5,7 +5,7 @@
         "fallback": {
           "type": "minecraft:simple_state_provider",
           "state": {
-            "Name": "lunarnether:lunar_stone"
+            "Name": "lunarnether:astralith"
           }
         },
         "rules": [
@@ -17,7 +17,7 @@
                 0,
                 0
               ],
-              "blocks": "lunarnether:lunar_stone"
+              "blocks": "lunarnether:astralith"
             },
             "then": {
               "type": "minecraft:simple_state_provider",
@@ -30,7 +30,7 @@
       },
       "target": {
         "type": "minecraft:matching_blocks",
-        "blocks": "lunarnether:lunar_stone"
+        "blocks": "lunarnether:astralith"
       },
       "radius": {
         "type": "minecraft:uniform",
