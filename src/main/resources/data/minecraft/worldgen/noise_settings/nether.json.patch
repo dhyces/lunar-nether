@@ -1,0 +1,159 @@
+[
+  {
+    "__comment": "Expands generation height from 128 to 192",
+    "op": "replace",
+    "path": "/noise/height",
+    "value": 192
+  },
+  {
+    "op": "replace",
+    "path": "/noise_router/continents",
+    "value": {
+      "type": "minecraft:y_clamped_gradient",
+      "from_value": 0.0,
+      "from_y": 0,
+      "to_value": 1.0,
+      "to_y": 128
+    }
+  },
+  {
+    "__comment": "Clamps the terrain again, reducing how high blocks generate",
+    "op": "add",
+    "path": "/temp",
+    "value": {
+      "type": "minecraft:add",
+      "argument1": 0,
+      "argument2": {
+        "type": "minecraft:y_clamped_gradient",
+        "from_y": 128,
+        "to_y": 192,
+        "from_value": 0,
+        "to_value": 2
+      }
+    }
+  },
+  {
+    "__comment": "This block and the one below wrap the existing argument value",
+    "op": "move",
+    "path": "/temp/argument1",
+    "from": "/noise_router/final_density/argument/argument2/argument/argument/argument2/argument2/argument2/argument2/argument1"
+  },
+  {
+    "op": "move",
+    "path": "/noise_router/final_density/argument/argument2/argument/argument/argument2/argument2/argument2/argument2/argument1",
+    "from": "/temp"
+  },
+  {
+    "__comment": "Clamps the terrain again, reducing how high blocks generate",
+    "op": "add",
+    "path": "/temp",
+    "value": {
+      "type": "minecraft:mul",
+      "argument1": {
+        "type": "minecraft:y_clamped_gradient",
+        "from_y": 128,
+        "to_y": 176,
+        "from_value": 1,
+        "to_value": 0.5
+      },
+      "argument2": 0
+    }
+  },
+  {
+    "__comment": "This block and the one below wrap the existing argument value",
+    "op": "move",
+    "path": "/temp/argument2",
+    "from": "/noise_router/final_density/argument/argument2/argument/argument/argument2/argument2/argument2/argument2/argument2/argument2"
+  },
+  {
+    "op": "move",
+    "path": "/noise_router/final_density/argument/argument2/argument/argument/argument2/argument2/argument2/argument2/argument2/argument2",
+    "from": "/temp"
+  },
+  {
+    "__comment": "Removes the bedrock ceiling",
+    "op": "remove",
+    "path": "/surface_rule/sequence/1"
+  },
+  {
+    "__comment": "Adds the outrocks moondust and moonstone",
+    "op": "add",
+    "path": "/surface_rule/sequence/1",
+    "value": {
+      "type": "minecraft:condition",
+      "if_true": {
+        "type": "minecraft:y_above",
+        "anchor": {
+          "below_top": 64
+        },
+        "surface_depth_multiplier": 0,
+        "add_stone_depth": false
+      },
+      "then_run": {
+        "type": "minecraft:sequence",
+        "sequence": [
+          {
+            "type": "minecraft:condition",
+            "if_true": {
+              "type": "minecraft:stone_depth",
+              "offset": 0,
+              "surface_type": "floor",
+              "add_surface_depth": false,
+              "secondary_depth_range": 0
+            },
+            "then_run": {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "lunarnether:lunar_dust"
+              }
+            }
+          },
+          {
+            "type": "minecraft:condition",
+            "if_true": {
+              "type": "minecraft:not",
+              "invert": {
+                "type": "minecraft:vertical_gradient",
+                "random_name": "lunar_border_gradient",
+                "true_at_and_below": {
+                  "absolute": 128
+                },
+                "false_at_and_above": {
+                  "absolute": 132
+                }
+              }
+            },
+            "then_run": {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "lunarnether:lunar_stone"
+              }
+            }
+          },
+          {
+            "type": "minecraft:condition",
+            "if_true": {
+              "type": "minecraft:not",
+              "invert": {
+                "type": "minecraft:vertical_gradient",
+                "random_name": "lunar_stone_gradient",
+                "true_at_and_below": {
+                  "absolute": 124
+                },
+                "false_at_and_above": {
+                  "absolute": 128
+                }
+              }
+            },
+            "then_run": {
+              "type": "minecraft:block",
+              "result_state": {
+                "Name": "minecraft:stone"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "op": "remove",
+    "path": "/fixed_time"
+  },
+  {
+    "op": "replace",
+    "path": "/has_ceiling",
+    "value": false
+  },
+  {
+    "op": "replace",
+    "path": "/logical_height",
+    "value": 255
+  }
+]
