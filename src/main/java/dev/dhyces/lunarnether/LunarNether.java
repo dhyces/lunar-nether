@@ -36,6 +36,7 @@ public class LunarNether {
         ModBlocks.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
         ModParticleTypes.REGISTRY.register(modBus);
+        ModBiomeSources.REGISTRY.register(modBus);
         BiomeModifierTypes.REGISTER.register(modBus);
         FeatureRegistry.FEATURES.register(modBus);
 
