@@ -92,9 +92,8 @@ public final class LunarNetherClient {
                 return pY < 128;
             }
 
-            @Nullable
             @Override
-            public float[] getSunriseColor(float pTimeOfDay, float pPartialTicks) {
+            public float @Nullable [] getSunriseColor(float pTimeOfDay, float pPartialTicks) {
                 return null;
             }
 
@@ -225,7 +224,7 @@ public final class LunarNetherClient {
     private static BufferBuilder.RenderedBuffer drawStars(BufferBuilder builder) {
         builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_COLOR);
 
-        int distance = 1000;
+        int distance = 500;
 
         RandomSource random = RandomSource.create(0xAAAAA);
         // copied from vanilla, no clue what all these variables are
