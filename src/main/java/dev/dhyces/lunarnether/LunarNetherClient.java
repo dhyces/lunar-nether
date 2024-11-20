@@ -140,10 +140,10 @@ public final class LunarNetherClient {
                 RenderSystem.setShaderTexture(0, SUN_LOCATION);
                 Matrix4f sunPose = poseStack.last().pose();
                 builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-                builder.vertex(sunPose, -sunSize, 101, -sunSize).uv(0, 0).endVertex();
-                builder.vertex(sunPose, sunSize, 101, -sunSize).uv(1, 0).endVertex();
-                builder.vertex(sunPose, sunSize, 101, sunSize).uv(1, 1).endVertex();
-                builder.vertex(sunPose, -sunSize, 101, sunSize).uv(0, 1).endVertex();
+                builder.vertex(sunPose, -sunSize, 100, -sunSize).uv(0, 0).endVertex();
+                builder.vertex(sunPose, sunSize, 100, -sunSize).uv(1, 0).endVertex();
+                builder.vertex(sunPose, sunSize, 100, sunSize).uv(1, 1).endVertex();
+                builder.vertex(sunPose, -sunSize, 100, sunSize).uv(0, 1).endVertex();
                 tesselator.end();
 
                 // pop sky rotation
@@ -157,7 +157,7 @@ public final class LunarNetherClient {
                 poseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
 
                 // render earth
-                float earthSize = 20f;
+                float earthSize = 30f;
                 int phase = (int)(netherDayTime / 24000L % 8L + 8L) % 8;
                 int x = phase % 4;
                 int y = phase / 4 % 2;
