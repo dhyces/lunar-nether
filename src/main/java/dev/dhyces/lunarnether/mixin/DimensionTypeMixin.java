@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(DimensionType.class)
 public abstract class DimensionTypeMixin {
     @Inject(method = "timeOfDay", at = @At(value = "HEAD"), cancellable = true)
-    public void getTimeOfDay(long pDayTime, CallbackInfoReturnable<Float> cir) {
+    private void getTimeOfDay(long pDayTime, CallbackInfoReturnable<Float> cir) {
         Level level = LunarTimeData.currentNether;
         if (level != null && (Object) this == level.dimensionType()) {
             if (level.isClientSide()) {

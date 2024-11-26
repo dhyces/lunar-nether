@@ -103,17 +103,6 @@ public final class LunarNetherClient {
                     return false;
                 }
 
-                // render sky
-                RenderSystem.setShader(GameRenderer::getPositionShader);
-                ShaderInstance posShader = RenderSystem.getShader();
-                if (posShader != null) {
-                    RenderSystem.setShaderColor(0, 0, 0, 1);
-                    skyBuffer.bind();
-                    skyBuffer.drawWithShader(poseStack.last().pose(), projectionMatrix, posShader);
-                    VertexBuffer.unbind();
-                    RenderSystem.setShaderColor(1, 1, 1, 1);
-                }
-
                 Tesselator tesselator = Tesselator.getInstance();
                 BufferBuilder builder = tesselator.getBuilder();
 
@@ -152,7 +141,7 @@ public final class LunarNetherClient {
                 // setup for earth
                 poseStack.pushPose();
                 //probably something to do with making it appear in the west instead of the north or south -90 = west.
-                poseStack.mulPose(Axis.YP.rotationDegrees(-75));
+                poseStack.mulPose(Axis.YP.rotationDegrees(-90));
                 //probably how many degrees up from the west is it, 0 is below you.
                 poseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
 
@@ -264,5 +253,15 @@ public final class LunarNetherClient {
         }
 
         return builder.end();
+    }
+
+    public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
+
+    public static float skyDarkness() {
+        double decimal = Mth.frac(LunarNetherClient.netherDayTime / (float)LENGTH_OF_LUNAR_DAY - 0.25);
+        double d1 = 0.5 - Math.cos(decimal * Math.PI) / 2;
+        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 28000;
+        double eclipseParabola = ((double) 15 / 1000000000) * (shiftedEclipse * shiftedEclipse);
+        return (float)(decimal * 2 + Math.min(d1, eclipseParabola)) / 3.0F;
     }
 }
