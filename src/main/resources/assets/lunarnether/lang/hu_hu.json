@@ -1,0 +1,40 @@
+{
+  "block.lunarnether.cut_polished_lunar_stone": "Vágott Holdkő",
+  "block.lunarnether.cut_polished_lunar_stone_slab": "Vágott csiszolt holdkő lap",
+  "block.lunarnether.cut_polished_lunar_stone_stairs": "Vágott csiszolt holdkő lépcső",
+  "block.lunarnether.cut_polished_lunar_stone_wall": "Vágott csiszolt holdkő fal",
+  "block.lunarnether.lunar_dust": "Holdi por",
+  "block.lunarnether.lunar_stone": "Holdkő",
+  "block.lunarnether.lunar_stone_slab": "Holdkő lap",
+  "block.lunarnether.lunar_stone_stairs": "Holdkő lépcső",
+  "block.lunarnether.lunar_stone_wall": "Holdkő fal",
+  "block.lunarnether.polished_lunar_stone": "Csiszolt holdkő",
+  "block.lunarnether.polished_lunar_stone_slab": "Csiszolt holdkő lap",
+  "block.lunarnether.polished_lunar_stone_stairs": "Csiszolt holdkő lépcső",
+  "block.lunarnether.polished_lunar_stone_wall": "Csiszolt holdkő fal",
+  "block.lunarnether.raw_ilmenite_block": "Ilmenitblokk",
+  "block.lunarnether.ilmenite_ore": "Ilmenitérc",
+  "block.lunarnether.titanium_block": "Titánblokk",
+  "block.lunarnether.cut_titanium": "Vágott titán",
+  "block.lunarnether.cut_titanium_slab": "Vágott titánilap",
+  "block.lunarnether.cut_titanium_stairs": "Vágott titánlépcső",
+  "block.lunarnether.cut_titanium_wall": "Vágott titánfal",
+  "block.lunarnether.astralith": "Astralith",
+
+  "item.lunarnether.raw_ilmenite": "Ilmenit",
+  "item.lunarnether.titanium_ingot": "Titánrúd",
+  "item.lunarnether.titanium_nugget": "Titánrög",
+  "item.lunarnether.lunar_clock": "Holdfázis óra",
+
+  "lunarnether.trim_material.ilmenite": "Ilmenitből készült",
+  "lunarnether.trim_material.titanium": "Titánból készült",
+
+  "advancements.lunarnnether.moonlanding.title": "Kis lépés Steve-nek...",
+  "advancements.lunarnnether.moonlanding.description": "Lépj a hold felszínére",
+  "advancements.lunarnnether.moonlanding2.title": "...Hatalmas ugrás az emberiségnek!",
+  "advancements.lunarnnether.moonlanding2.description": "Ugorj nagyot a Holdon",
+
+  "biome.lunarnether.outrocks": "Outrocks",
+
+  "creativetab.lunarnether.main": "Lunar Nether"
+}
