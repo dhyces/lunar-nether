@@ -32,6 +32,7 @@ import java.lang.Math;
 public final class LunarNetherClient {
     private static final ResourceLocation SUN_LOCATION = new ResourceLocation("textures/environment/sun.png");
     private static final ResourceLocation EARTH_LOCATION = LunarNether.id("textures/environment/overworld_phases.png");
+    private static final ResourceLocation EARTH_GLOW_LOCATION = LunarNether.id("textures/environment/overworld_glow.png");
 
     /**
      * A separate time value for the nether which controls light and sky rendering.
@@ -164,6 +165,21 @@ public final class LunarNetherClient {
                 builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(maxU, minV).endVertex();
                 tesselator.end();
 
+                int eclipsePhase = eclipsePhase(eclipse(), eclipseSlope() < 0);
+                int eclipseX = eclipsePhase % 4;
+                int eclipseY = eclipsePhase / 4 % 2;
+                float eclipseMinU = (float) (eclipseX) / 4.0F;
+                float eclipseMinV = (float) (eclipseY) / 2.0F;
+                float eclipseMaxU = (float) (eclipseX + 1) / 4.0F;
+                float eclipseMaxV = (float) (eclipseY + 1) / 2.0F;
+                RenderSystem.setShaderTexture(0, EARTH_GLOW_LOCATION);
+                builder.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+                builder.vertex(earthPose, -earthSize, -100, earthSize).uv(eclipseMaxU, eclipseMaxV).endVertex();
+                builder.vertex(earthPose, earthSize, -100, earthSize).uv(eclipseMinU, eclipseMaxV).endVertex();
+                builder.vertex(earthPose, earthSize, -100, -earthSize).uv(eclipseMinU, eclipseMinV).endVertex();
+                builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(eclipseMaxU, eclipseMinV).endVertex();
+                tesselator.end();
+
                 // pop earth position
                 poseStack.popPose();
                 return true;
@@ -257,11 +273,34 @@ public final class LunarNetherClient {
 
     public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
 
-    public static float skyDarkness() {
+    public static double eclipse() {
+        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
+        return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
+    }
+
+    public static double eclipseSlope() {
+        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
+        return (40d / 1000000000) * shiftedEclipse;
+    }
+
+    public static int eclipsePhase(double eclipseValue, boolean isSlopeNegative) {
+        // .75 1st phase, .60 - 2nd phase, .35 3rd phase, .142 4th
+        if (eclipseValue > 1.3) {
+            return 0;
+        } else if (eclipseValue > 0.7) {
+            return isSlopeNegative ? 1 : 7;
+        } else if (eclipseValue > 0.35) {
+            return isSlopeNegative ? 2 : 6;
+        } else if (eclipseValue > 0.142) {
+            return isSlopeNegative ? 3 : 5;
+        } else {
+            return 4;
+        }
+    }
+
+    public static float skyDarkness(double eclipseParabola) {
         double decimal = Mth.frac(LunarNetherClient.netherDayTime / (float)LENGTH_OF_LUNAR_DAY - 0.25);
         double d1 = 0.5 - Math.cos(decimal * Math.PI) / 2;
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 28000;
-        double eclipseParabola = ((double) 15 / 1000000000) * (shiftedEclipse * shiftedEclipse);
         return (float)(decimal * 2 + Math.min(d1, eclipseParabola)) / 3.0F;
     }
 }

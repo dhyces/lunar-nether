@@ -28,7 +28,7 @@ public abstract class ClientLevelMixin extends Level {
     @WrapOperation(method = "getSkyDarken", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/multiplayer/ClientLevel;getTimeOfDay(F)F"))
     private float lunarnether$darkenNetherSkylight(ClientLevel instance, float v, Operation<Float> original) {
         if (instance.dimension() == Level.NETHER) {
-            return LunarNetherClient.skyDarkness();
+            return LunarNetherClient.skyDarkness(LunarNetherClient.eclipse());
         }
         return original.call(instance, v);
     }

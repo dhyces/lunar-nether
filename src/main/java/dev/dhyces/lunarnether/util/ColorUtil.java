@@ -57,7 +57,7 @@ public class ColorUtil {
      */
     public static int getTemperatureColor(@Range(from = 1000, to = 40000) int kelvin) {
 
-        float temp = kelvin /= 100;
+        float temp = kelvin / 100f;
 
         float red = 255;
         float green;
