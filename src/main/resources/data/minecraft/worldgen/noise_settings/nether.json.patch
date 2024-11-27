@@ -11,10 +11,10 @@
     "path": "/noise_router/continents",
     "value": {
       "type": "minecraft:y_clamped_gradient",
-      "from_value": 0.0,
       "from_y": 0,
-      "to_value": 1.0,
-      "to_y": 128
+      "to_y": 128,
+      "from_value": 0.0,
+      "to_value": 1.0
     }
   },
   {
