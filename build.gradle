@@ -1,10 +1,11 @@
 plugins {
-    id 'eclipse'
-    id 'idea'
-    id 'maven-publish'
-    id 'net.neoforged.gradle' version '[6.0.18,6.2)'
-    id 'org.spongepowered.mixin' version '0.7.+'
-    id 'org.parchmentmc.librarian.forgegradle' version '1.+'
+    id "eclipse"
+    id "idea"
+    id "maven-publish"
+    alias(libs.plugins.moddev)
+    alias(libs.plugins.mdg)
+    alias(libs.plugins.curseforgegradle)
+    alias(libs.plugins.minotaur)
 }
 
 version = mod_version
@@ -14,142 +15,148 @@ base {
     archivesName = mod_id
 }
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
-
-minecraft {
-    mappings channel: mapping_channel, version: mapping_version
-
-    copyIdeResources = true
-
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    runs {
-        configureEach {
-            workingDirectory file('run')
-
-            property 'mixin.env.remapRefMap', 'true'
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                "${mod_id}" {
-                    source sourceSets.main
-                }
-            }
+modsDotGroovy {
+    multiplatform {
+        gather {
+            projectProperty("mod_id")
+            projectProperty("mod_name")
+            projectProperty("mod_license")
+            projectProperty("authors")
+            projectProperty("mod_description")
+            projectProperty("mod_source_url")
+            projectProperty("mod_issues_url")
+            projectProperty("mod_display_url")
         }
-
-        client {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
-
-        server {
-            property 'forge.enabledGameTestNamespaces', mod_id
-            args '--nogui'
-        }
-
-        gameTestServer {
-            property 'forge.enabledGameTestNamespaces', mod_id
-        }
-
-        data {
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-        }
+        expose()
     }
 }
 
-sourceSets.main.resources { srcDir 'src/generated/resources' }
+sourceSets {
+    main {
+        resources {
+            srcDirs += "src/generated/resources"
+        }
+    }
+    datagen {
+        compileClasspath += main.compileClasspath + main.output
+        runtimeClasspath += main.runtimeClasspath + main.output
+    }
+}
 
-repositories {
-    mavenLocal()
-    maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
+neoForge {
+    version = version = libs.neoforge.get().version
+    parchment {
+        minecraftVersion = libs.versions.parchment.minecraft.get()
+        mappingsVersion = libs.versions.parchment.release.get()
+    }
+
+    runs {
+        client {
+            client()
+            ideName = "Neo Client"
+        }
+        server {
+            server()
+            ideName = "Neo Server"
+        }
+        data {
+            data()
+            ideName = "Neo Data"
+
+            programArgument("'--mod', ${mod_id}, '--all', '--output', ${file('src/generated/resources/')}, '--existing', ${file('src/main/resources/')}")
         }
     }
-    maven {
-        name = 'Modrinth'
-        url = 'https://api.modrinth.com/maven'
-        content {
-            includeGroup 'maven.modrinth'
-        }
-    }
-    maven { url = "https://jitpack.io/" }
-    maven { url = 'https://maven.minecraftforge.net/' }
 }
 
 dependencies {
-    minecraft "net.neoforged:forge:${minecraft_version}-${neo_version}"
-
-    implementation(fg.deobf("curse.maven:liveworldgen-887971:${liveworldgen_version}"))
-
-    implementation fg.deobf("maven.modrinth:trimmed:1.20.1-2.1.4+forge")
-    implementation fg.deobf("maven.modrinth:patched:3.4.1+1.20.1-forge")
-    // TODO: Use biomesquisher in 1.21
-
-    compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
-    implementation(jarJar("io.github.llamalad7:mixinextras-forge:0.4.1")) {
-        jarJar.ranged(it, "[0.4.1,)")
-    }
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+    implementation libs.trimmed
+    implementation libs.patched
 }
 
-mixin {
-    add sourceSets.main, "biomeextensions.refmap.json"
-
-    config 'biomeextensions.mixins.json'
-
-    add sourceSets.main, "lunarnether.refmap.json"
-
-    config 'lunarnether.mixins.json'
+processResources {
+    exclude(".cache", "mods.groovy")
 }
 
-tasks.withType(ProcessResources).configureEach {
-    exclude("/.cache")
-    var replaceProperties = [
-            minecraft_version   : minecraft_version, minecraft_version_range: minecraft_version_range,
-            neo_version         : neo_version, neo_version_range: neo_version_range,
-            loader_version_range: loader_version_range,
-            mod_id              : mod_id, mod_name: mod_name, mod_license: mod_license, mod_version: mod_version,
-            mod_authors         : mod_authors, mod_description: mod_description, pack_format_number: pack_format_number,
-    ]
-    inputs.properties replaceProperties
+java {
+    withSourcesJar()
+    withJavadocJar()
+    toolchain.getLanguageVersion().set(JavaLanguageVersion.of(21))
+}
 
-    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
-        expand replaceProperties + [project: project]
+sourcesJar {
+    from(rootProject.file("LICENSE")) {
+        rename { "${it}_${mod_id}" }
     }
 }
 
-tasks.named('jar', Jar).configure {
+tasks.jar {
     manifest {
         attributes([
-                'Specification-Title'     : mod_id,
-                'Specification-Vendor'    : mod_authors,
-                'Specification-Version'   : '1', // We are version 1 of ourselves
-                'Implementation-Title'    : project.name,
-                'Implementation-Version'  : project.jar.archiveVersion,
-                'Implementation-Vendor'   : mod_authors,
-                'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Specification-Title"     : mod_id,
+                "Specification-Vendor"    : authors,
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : authors,
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
 
-    finalizedBy 'reobfJar'
+    finalizedBy "reobfJar"
 }
 
 publishing {
     publications {
-        register('mavenJava', MavenPublication) {
-            artifact jar
+        register("mavenJava", MavenPublication) {
+            from components.java
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            url "file://${project.projectDir}/repo"
         }
     }
 }
 
 tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+    it.options.encoding = "UTF-8"
+    it.options.getRelease().set(21)
+}
+
+if (hasProperty("modrinth_write_version_pat")) {
+    modrinth {
+        token = findProperty("modrinth_write_version_pat") as String
+        projectId = properties["modrinth_project_id"] as String
+        versionName = "${libs.versions.minecraft.release.get()}-${properties["mod_version"]}"
+        versionNumber = "${libs.versions.minecraft.release.get()}-${properties["mod_version"]}+neoforge"
+        versionType = properties["publish_type"] as String
+        uploadFile.set(tasks.jar)
+        gameVersions = List.of(libs.versions.publish.range.get().split(","))
+        loaders = List.of("neoforge")
+        changelog = rootProject.file("changelog.md").text
+        additionalFiles = List.of(tasks.named("sourcesJar"), tasks.named("javadocJar"))
+        detectLoaders = false
+        debugMode = properties["publish_debug"].toString().toBoolean()
+    }
+}
+
+if (hasProperty("curseforge_publishing_token")) {
+    tasks.register("curseforge", net.darkhax.curseforgegradle.TaskPublishCurseForge) {
+        group = "publishing"
+
+        disableVersionDetection()
+        apiToken = findProperty("curseforge_publishing_token")
+        def projectId = properties["curseforge_project_id"]
+        def mainFile = upload(projectId, tasks.jar)
+        mainFile.displayName = "${libs.versions.minecraft.release.get()}-${properties["mod_version"]}"
+        mainFile.releaseType = properties["publish_type"]
+        mainFile.changelog = rootProject.file("changelog.md").text
+        mainFile.changelogType = "markdown"
+        mainFile.addModLoader("NeoForge")
+        mainFile.addJavaVersion("Java ${java.toolchain.languageVersion.get()}")
+        mainFile.addGameVersion(libs.versions.minecraft.release.get())
+        debugMode = properties["publish_debug"].toString().toBoolean()
+
+        dependsOn(tasks.remapJar)
+    }
 }

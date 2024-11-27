@@ -1,0 +1,35 @@
+[versions]
+minecraft_release = "1.21.1"
+minecraft_range = "[1.21,1.21.2)"
+publish_range = "[1.21,1.21.2)"
+fml_loader = "4"
+
+parchment_release = "2024.11.10"
+parchment_minecraft = "1.21"
+
+javafml_range = "[3,)"
+neoforge_release = "21.1.82"
+neoforge_range = "[21.1.82,21.2-beta)"
+trimmed = "1.21-3.0.0+neoforge"
+patched = "7.3.2+1.21.1-neoforge"
+
+jetbrains_annotations = "24.1.0"
+
+moddev = "2.0.49-beta"
+mdg_plugin = "2.0.0-beta.30"
+
+curseforgegradle = "1.1.25"
+minotaur = "2.+"
+
+[libraries]
+neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge_release" }
+trimmed = { module = "maven.modrinth:trimmed", version.ref = "trimmed" }
+patched = { module = "maven.modrinth:patched", version.ref = "patched" }
+
+jetbrains_annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains_annotations" }
+
+[plugins]
+moddev = { id = "net.neoforged.moddev", version.ref = "moddev" }
+mdg = { id = "org.groovymc.modsdotgroovy", version.ref = "mdg_plugin" }
+curseforgegradle = { id = "net.darkhax.curseforgegradle", version.ref = "curseforgegradle" }
+minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
