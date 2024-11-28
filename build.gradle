@@ -117,7 +117,7 @@ java {
 
 sourcesJar {
     from(rootProject.file("LICENSE")) {
-        rename { "${it}_${mod_id}" }
+        rename { "${it}_lunarnether" }
     }
 }
 
