@@ -46,10 +46,10 @@ sourceSets {
             srcDirs += "src/generated/resources"
         }
     }
-    datagen {
-        compileClasspath += main.compileClasspath + main.output
-        runtimeClasspath += main.runtimeClasspath + main.output
-    }
+//    datagen {
+//        compileClasspath += main.compileClasspath + main.output
+//        runtimeClasspath += main.runtimeClasspath + main.output
+//    }
 }
 
 neoForge {
