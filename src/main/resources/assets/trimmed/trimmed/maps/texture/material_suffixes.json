@@ -1,0 +1,7 @@
+{
+  "__comment": "Map of palette texture location to suffix for generated textures",
+  "pairs": {
+    "lunarnether:trims/color_palettes/ilmenite": "lunarnether_ilmenite",
+    "lunarnether:trims/color_palettes/titanium": "lunarnether_titanium"
+  }
+}
