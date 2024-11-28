@@ -17,9 +17,9 @@ public abstract class DimensionTypeMixin {
         Level level = LunarTimeData.currentNether;
         if (level != null && (Object) this == level.dimensionType()) {
             if (level.isClientSide()) {
-                cir.setReturnValue(LunarTimeData.netherTimeOfDay(LunarNetherClient.netherDayTime));
+                cir.setReturnValue(LunarTimeData.netherTimeOfDay(pDayTime));
             } else {
-                cir.setReturnValue(LunarTimeData.netherTimeOfDay(LunarTimeData.getOrCreate((ServerLevel) level).getDaytime()));
+                cir.setReturnValue(LunarTimeData.netherTimeOfDay(pDayTime));
             }
         }
     }

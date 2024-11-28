@@ -2,6 +2,10 @@ package dev.dhyces.lunarnether.util;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.util.FastColor;
 import net.minecraft.util.Mth;
 import net.minecraft.util.StringRepresentable;
@@ -34,6 +38,7 @@ public class ColorUtil {
         };
 
         public static final Codec<ColorSpace> CODEC = StringRepresentable.fromEnum(ColorSpace::values);
+        public static final StreamCodec<ByteBuf, ColorSpace> STREAM_CODEC = ByteBufCodecs.idMapper(value -> ColorSpace.values()[value], Enum::ordinal);
 
         private final String safeName;
 

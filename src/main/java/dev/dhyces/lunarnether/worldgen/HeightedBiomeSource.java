@@ -2,6 +2,7 @@ package dev.dhyces.lunarnether.worldgen;
 
 import com.mojang.datafixers.util.Pair;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import dev.dhyces.lunarnether.registry.ModBiomeSources;
 import net.minecraft.core.Holder;
@@ -14,7 +15,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 public class HeightedBiomeSource extends BiomeSource {
-    public static final Codec<HeightedBiomeSource> CODEC = RecordCodecBuilder.create(instance ->
+    public static final MapCodec<HeightedBiomeSource> CODEC = RecordCodecBuilder.mapCodec(instance ->
             instance.group(
                     BiomeSource.CODEC.fieldOf("fallback").forGetter(heightedBiomeSource -> heightedBiomeSource.fallback),
                     Codec.pair(Codec.INT.fieldOf("y").codec(), BiomeSource.CODEC.fieldOf("source").codec())
@@ -31,7 +32,7 @@ public class HeightedBiomeSource extends BiomeSource {
     }
 
     @Override
-    protected Codec<? extends BiomeSource> codec() {
+    protected MapCodec<? extends BiomeSource> codec() {
         return ModBiomeSources.HEIGHTED.get();
     }
 
