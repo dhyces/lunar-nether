@@ -23,3 +23,6 @@ file = "META-INF/accesstransformer.cfg"
 
 [[mixins]]
 config = "lunarnether.mixins.json"
+
+[modproperties.lunarnether.patched]
+format_version = 1 # This tells Patched we want to patch things.
