@@ -96,6 +96,7 @@ repositories {
 dependencies {
     implementation libs.trimmed
     implementation libs.patched
+    implementation libs.biomesquisher
 }
 
 processResources {

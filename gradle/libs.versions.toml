@@ -12,6 +12,7 @@ neoforge_release = "21.1.82"
 neoforge_range = "[21.1.82,21.2-beta)"
 trimmed = "1.21-3.0.0+neoforge"
 patched = "7.3.2+1.21.1-neoforge"
+biomesquisher = "0.4.1"
 
 jetbrains_annotations = "24.1.0"
 
@@ -25,6 +26,7 @@ minotaur = "2.+"
 neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge_release" }
 trimmed = { module = "maven.modrinth:trimmed", version.ref = "trimmed" }
 patched = { module = "maven.modrinth:patched", version.ref = "patched" }
+biomesquisher = { module = "maven.modrinth:biomesquisher", version.ref = "biomesquisher" }
 
 jetbrains_annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains_annotations" }
 
