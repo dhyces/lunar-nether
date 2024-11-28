@@ -1,4 +1,4 @@
-MultiplatformModsDotGroovy.make {
+NeoForgeModsDotGroovy.make {
     def modid = buildProperties["mod_id"]
 
     modLoader = "javafml"

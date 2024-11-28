@@ -1,3 +1,6 @@
+import org.groovymc.modsdotgroovy.types.core.Platform
+import org.groovymc.modsdotgroovy.gradle.tasks.AbstractGatherPlatformDetailsTask
+
 plugins {
     id "eclipse"
     id "idea"
@@ -15,20 +18,26 @@ base {
     archivesName = mod_id
 }
 
+
 modsDotGroovy {
-    multiplatform {
-        gather {
-            projectProperty("mod_id")
-            projectProperty("mod_name")
-            projectProperty("mod_license")
-            projectProperty("authors")
-            projectProperty("mod_description")
-            projectProperty("mod_source_url")
-            projectProperty("mod_issues_url")
-            projectProperty("mod_display_url")
-        }
-        expose()
+    platform = Platform.NEOFORGE
+    inferGather.set false
+    gather {
+        projectProperty("mod_id")
+        projectProperty("mod_name")
+        projectProperty("mod_license")
+        projectProperty("authors")
+        projectProperty("mod_description")
+        projectProperty("mod_source_url")
+        projectProperty("mod_issues_url")
+        projectProperty("mod_display_url")
     }
+    apply()
+}
+
+tasks.named('gatherNeoForgePlatformDetails', AbstractGatherPlatformDetailsTask).configure {
+    minecraftVersion = libs.versions.minecraft.release.get()
+    platformVersion = libs.versions.neoforge.release.get()
 }
 
 sourceSets {
