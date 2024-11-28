@@ -6,11 +6,11 @@
   "mixins": [
     "DimensionTypeMixin"
   ],
-  "injectors": {
-    "defaultRequire": 1
-  },
   "client": [
     "ClientLevelMixin",
     "FogRendererMixin"
-  ]
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
 }
