@@ -1,7 +1,0 @@
-{
-  "type": "lunarnether:add_carver",
-  "biomes": "#minecraft:is_nether",
-  "carvers": {
-    "air": "lunarnether:moon_cave"
-  }
-}
