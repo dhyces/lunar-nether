@@ -12,7 +12,7 @@
   ],
   "result": {
     "count": 6,
-    "item": "lunarnether:lunar_stone_wall"
+    "id": "lunarnether:lunar_stone_wall"
   },
   "show_notification": true
 }

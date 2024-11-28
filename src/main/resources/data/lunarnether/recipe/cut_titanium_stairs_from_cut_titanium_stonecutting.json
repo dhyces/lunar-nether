@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "lunarnether:cut_titanium"
   },
-  "result": "lunarnether:cut_titanium_stairs"
+  "result": {
+    "id": "lunarnether:cut_titanium_stairs"
+  }
 }

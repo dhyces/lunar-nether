@@ -8,6 +8,6 @@
     "item": "lunarnether:raw_ilmenite"
   },
   "result": {
-    "item": "minecraft:iron_nugget"
+    "id": "minecraft:iron_nugget"
   }
 }

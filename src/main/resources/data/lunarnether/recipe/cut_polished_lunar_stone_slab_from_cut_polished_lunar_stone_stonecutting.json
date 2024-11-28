@@ -4,5 +4,7 @@
   "ingredient": {
     "item": "lunarnether:cut_polished_lunar_stone"
   },
-  "result": "lunarnether:cut_polished_lunar_stone_slab"
+  "result": {
+    "id": "lunarnether:cut_polished_lunar_stone_slab"
+  }
 }

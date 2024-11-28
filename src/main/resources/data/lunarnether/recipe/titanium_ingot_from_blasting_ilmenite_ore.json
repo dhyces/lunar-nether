@@ -7,6 +7,6 @@
     "item": "lunarnether:ilmenite_ore"
   },
   "result": {
-    "item": "lunarnether:titanium_ingot"
+    "id": "lunarnether:titanium_ingot"
   }
 }
