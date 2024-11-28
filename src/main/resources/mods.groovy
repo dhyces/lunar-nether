@@ -7,6 +7,10 @@ MultiplatformModsDotGroovy.make {
     license = buildProperties["mod_license"]
     issueTrackerUrl = buildProperties["mod_issues_url"]
 
+    accessTransformers {
+        accessTransformer("META-INF/accesstransformer.cfg")
+    }
+
     mod {
         modId = modid
         displayName = buildProperties["mod_name"]
