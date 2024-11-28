@@ -1,6 +1,5 @@
 package dev.dhyces.lunarnether;
 
-import dev.dhyces.biomeextensions.BiomeExtensionsMod;
 import dev.dhyces.lunarnether.networking.LunarNetherNetwork;
 import dev.dhyces.lunarnether.registry.*;
 import dev.dhyces.lunarnether.server.LunarTimeData;
@@ -24,7 +23,6 @@ public class LunarNether {
     public static final Logger LOGGER = LoggerFactory.getLogger("LunarNether");
 
     public LunarNether(IEventBus modBus) {
-        BiomeExtensionsMod.init();
 
 //        LunarNetherNetwork.register();
 
