@@ -1,0 +1,25 @@
+modLoader = "javafml"
+loaderVersion = "[3,)"
+license = "MIT"
+issueTrackerURL = "https://github.com/dhyces/lunar-nether/issues"
+
+[[mods]]
+modId = "lunarnether"
+displayName = "Lunar Nether"
+authors = "Dhyces, xbxbxb123, hisroyalbaguettes, bonker, Kayla"
+version = "0.4.0"
+displayURL = "https://legacy.curseforge.com/minecraft/mc-mods/lunar-nether"
+sourcesUrl = "https://github.com/dhyces/lunar-nether"
+logoFile = "assets/lunarnether/logo.png"
+description = "Nether surface is the moon"
+
+[[dependencies.lunarnether]]
+modId = "neoforge"
+versionRange = "[21.1.82,21.2-beta)"
+type = "required"
+
+[[accessTransformers]]
+file = "META-INF/accesstransformer.cfg"
+
+[[mixins]]
+config = "lunarnether.mixins.json"
