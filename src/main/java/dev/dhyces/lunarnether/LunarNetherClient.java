@@ -4,6 +4,7 @@ import dev.dhyces.lunarnether.client.LunarNetherDimensionSpecialEffects;
 import dev.dhyces.lunarnether.client.particle.ColoredAshParticle;
 import dev.dhyces.lunarnether.registry.ModItems;
 import dev.dhyces.lunarnether.registry.ModParticleTypes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -27,12 +28,6 @@ public final class LunarNetherClient {
         modBus.addListener(this::netherSky);
     }
 
-    /**
-     * A separate time value for the nether which controls light and sky rendering.
-     * Increases 8 times slower than the normal overworld daytime.
-     */
-    public static long netherDayTime = 0;
-
     private void registerItemProperties(final FMLClientSetupEvent event) {
         event.enqueueWork(() -> {
             ItemProperties.register(ModItems.LUNAR_CLOCK.get(), LunarNether.id("moon_phase"), (pStack, pLevel, pEntity, pSeed) ->
@@ -52,12 +47,12 @@ public final class LunarNetherClient {
     public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
 
     public static double eclipse() {
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
+        double shiftedEclipse = Minecraft.getInstance().level.dayTime() % LENGTH_OF_LUNAR_DAY - 26875;
         return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
     }
 
     public static double eclipseSlope() {
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
+        double shiftedEclipse = Minecraft.getInstance().level.dayTime() % LENGTH_OF_LUNAR_DAY - 26875;
         return (40d / 1000000000) * shiftedEclipse;
     }
 
@@ -77,7 +72,7 @@ public final class LunarNetherClient {
     }
 
     public static float skyDarkness(double eclipseParabola) {
-        double decimal = Mth.frac(LunarNetherClient.netherDayTime / (float)LENGTH_OF_LUNAR_DAY - 0.25);
+        double decimal = Mth.frac(Minecraft.getInstance().level.dayTime() / (float)LENGTH_OF_LUNAR_DAY - 0.25);
         double d1 = 0.5 - Math.cos(decimal * Math.PI) / 2;
         return (float)(decimal * 2 + Math.min(d1, eclipseParabola)) / 3.0F;
     }

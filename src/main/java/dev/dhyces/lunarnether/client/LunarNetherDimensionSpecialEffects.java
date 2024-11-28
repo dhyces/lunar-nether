@@ -13,7 +13,6 @@ import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
 import dev.dhyces.lunarnether.LunarNether;
 import dev.dhyces.lunarnether.LunarNetherClient;
-import dev.dhyces.lunarnether.server.LunarTimeData;
 import dev.dhyces.lunarnether.util.ColorUtil;
 import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -89,7 +88,7 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(-90));
         // rotate for time of day
-        poseStack.mulPose(Axis.XP.rotationDegrees(LunarTimeData.netherTimeOfDay(LunarNetherClient.netherDayTime) * 360.0F));
+        poseStack.mulPose(Axis.XP.rotationDegrees(LunarNether.netherTimeOfDay(level.dayTime()) * 360.0F));
 
         // render stars
         RenderSystem.setShader(GameRenderer::getPositionColorShader);
@@ -119,14 +118,13 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
 
         // setup for earth
         poseStack.pushPose();
-        //probably something to do with making it appear in the west instead of the north or south -90 = west.
         poseStack.mulPose(Axis.YP.rotationDegrees(-90));
         //probably how many degrees up from the west is it, 0 is below you.
         poseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
 
         // render earth
         float earthSize = 30f;
-        int phase = (int)(LunarNetherClient.netherDayTime / 24000L % 8L + 8L) % 8;
+        int phase = (int)(level.dayTime() / 24000L % 8L + 8L) % 8;
         int x = phase % 4;
         int y = phase / 4 % 2;
         float minU = (float) (x) / 4.0F;
