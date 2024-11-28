@@ -3,6 +3,7 @@ package dev.dhyces.lunarnether.client;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.BufferBuilder;
+import com.mojang.blaze3d.vertex.BufferUploader;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -78,11 +79,13 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
             return false;
         }
 
-        BufferBuilder builder = Tesselator.getInstance().begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        Tesselator tesselator = Tesselator.getInstance();
 
         PoseStack poseStack = new PoseStack();
         
         // setup for sun and stars
+        poseStack.pushPose();
+        poseStack.mulPose(modelViewMatrix);
         poseStack.pushPose();
         poseStack.mulPose(Axis.YP.rotationDegrees(-90));
         // rotate for time of day
@@ -104,10 +107,12 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderTexture(0, LevelRenderer.SUN_LOCATION);
         Matrix4f sunPose = poseStack.last().pose();
+        BufferBuilder builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
         builder.addVertex(sunPose, -sunSize, 100, -sunSize).setUv(0, 0);
         builder.addVertex(sunPose, sunSize, 100, -sunSize).setUv(1, 0);
         builder.addVertex(sunPose, sunSize, 100, sunSize).setUv(1, 1);
         builder.addVertex(sunPose, -sunSize, 100, sunSize).setUv(0, 1);
+        BufferUploader.drawWithShader(builder.buildOrThrow());
 
         // pop sky rotation
         poseStack.popPose();
@@ -131,10 +136,12 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         RenderSystem.defaultBlendFunc();
         RenderSystem.setShaderTexture(0, EARTH_LOCATION);
         Matrix4f earthPose = poseStack.last().pose();
+        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
         builder.addVertex(earthPose, -earthSize, -100, earthSize).setUv(maxU, maxV);
         builder.addVertex(earthPose, earthSize, -100, earthSize).setUv(minU, maxV);
         builder.addVertex(earthPose, earthSize, -100, -earthSize).setUv(minU, minV);
         builder.addVertex(earthPose, -earthSize, -100, -earthSize).setUv(maxU, minV);
+        BufferUploader.drawWithShader(builder.buildOrThrow());
 
         int eclipsePhase = LunarNetherClient.eclipsePhase(LunarNetherClient.eclipse(), LunarNetherClient.eclipseSlope() < 0);
         int eclipseX = eclipsePhase % 4;
@@ -144,12 +151,15 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         float eclipseMaxU = (float) (eclipseX + 1) / 4.0F;
         float eclipseMaxV = (float) (eclipseY + 1) / 2.0F;
         RenderSystem.setShaderTexture(0, EARTH_GLOW_LOCATION);
+        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
         builder.addVertex(earthPose, -earthSize, -100, earthSize).setUv(eclipseMaxU, eclipseMaxV);
         builder.addVertex(earthPose, earthSize, -100, earthSize).setUv(eclipseMinU, eclipseMaxV);
         builder.addVertex(earthPose, earthSize, -100, -earthSize).setUv(eclipseMinU, eclipseMinV);
         builder.addVertex(earthPose, -earthSize, -100, -earthSize).setUv(eclipseMaxU, eclipseMinV);
+        BufferUploader.drawWithShader(builder.buildOrThrow());
 
         // pop earth position
+        poseStack.popPose();
         poseStack.popPose();
         return true;
     }
