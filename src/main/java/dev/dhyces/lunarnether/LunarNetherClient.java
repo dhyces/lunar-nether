@@ -6,7 +6,6 @@ import dev.dhyces.lunarnether.registry.ModItems;
 import dev.dhyces.lunarnether.registry.ModParticleTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.neoforged.api.distmarker.Dist;
@@ -20,8 +19,6 @@ import java.lang.Math;
 
 @Mod(value = LunarNether.MODID, dist = Dist.CLIENT)
 public final class LunarNetherClient {
-    private static final ResourceLocation SUN_LOCATION = ResourceLocation.withDefaultNamespace("textures/environment/sun.png");
-
     public LunarNetherClient(IEventBus modBus) {
         modBus.addListener(this::registerItemProperties);
         modBus.addListener(this::registerParticles);
@@ -49,26 +46,6 @@ public final class LunarNetherClient {
     public static double eclipse() {
         double shiftedEclipse = Minecraft.getInstance().level.dayTime() % LENGTH_OF_LUNAR_DAY - 26875;
         return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
-    }
-
-    public static double eclipseSlope() {
-        double shiftedEclipse = Minecraft.getInstance().level.dayTime() % LENGTH_OF_LUNAR_DAY - 26875;
-        return (40d / 1000000000) * shiftedEclipse;
-    }
-
-    public static int eclipsePhase(double eclipseValue, boolean isSlopeNegative) {
-        // .75 1st phase, .60 - 2nd phase, .35 3rd phase, .142 4th
-        if (eclipseValue > 1.3) {
-            return 0;
-        } else if (eclipseValue > 0.7) {
-            return isSlopeNegative ? 1 : 7;
-        } else if (eclipseValue > 0.35) {
-            return isSlopeNegative ? 2 : 6;
-        } else if (eclipseValue > 0.142) {
-            return isSlopeNegative ? 3 : 5;
-        } else {
-            return 4;
-        }
     }
 
     public static float skyDarkness(double eclipseParabola) {

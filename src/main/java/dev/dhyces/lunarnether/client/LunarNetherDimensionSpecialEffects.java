@@ -124,7 +124,7 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
 
         // render earth
         float earthSize = 30f;
-        int phase = (int)(level.dayTime() / 24000L % 8L + 8L) % 8;
+        int phase = (int)(level.dayTime() * 7 / 24000 % 8L);
         int x = phase % 4;
         int y = phase / 4 % 2;
         float minU = (float) (x) / 4.0F;
@@ -141,7 +141,7 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         builder.addVertex(earthPose, -earthSize, -100, -earthSize).setUv(maxU, minV);
         BufferUploader.drawWithShader(builder.buildOrThrow());
 
-        int eclipsePhase = LunarNetherClient.eclipsePhase(LunarNetherClient.eclipse(), LunarNetherClient.eclipseSlope() < 0);
+        int eclipsePhase = (level.getMoonPhase() + 4) % 8;
         int eclipseX = eclipsePhase % 4;
         int eclipseY = eclipsePhase / 4 % 2;
         float eclipseMinU = (float) (eclipseX) / 4.0F;
