@@ -9,6 +9,7 @@ import com.mojang.blaze3d.vertex.MeshData;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.Tesselator;
 import com.mojang.blaze3d.vertex.VertexBuffer;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import com.mojang.math.Axis;
 import dev.dhyces.lunarnether.LunarNether;
@@ -31,6 +32,7 @@ import org.joml.Vector3f;
 public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects {
     public static final ResourceLocation EARTH_LOCATION = LunarNether.id("textures/environment/overworld_phases.png");
     public static final ResourceLocation EARTH_GLOW_LOCATION = LunarNether.id("textures/environment/overworld_glow.png");
+    private static final float EARTH_SIZE = 30f;
     private static VertexBuffer skyBuffer;
     private static VertexBuffer starsBuffer;
 
@@ -123,8 +125,24 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         poseStack.mulPose(Axis.XP.rotationDegrees(150.0F));
 
         // render earth
-        float earthSize = 30f;
+        Matrix4f pose = poseStack.last().pose();
         int phase = (int)(level.dayTime() * 7 / 24000 % 8L);
+        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        drawPhase(builder, pose, phase, EARTH_LOCATION);
+        BufferUploader.drawWithShader(builder.buildOrThrow());
+
+        phase = (level.getMoonPhase() + 4) % 8;
+        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
+        drawPhase(builder, pose, phase, EARTH_GLOW_LOCATION);
+        BufferUploader.drawWithShader(builder.buildOrThrow());
+
+        // pop earth position
+        poseStack.popPose();
+        poseStack.popPose();
+        return true;
+    }
+
+    private static void drawPhase(VertexConsumer builder, Matrix4f pose, int phase, ResourceLocation texture) {
         int x = phase % 4;
         int y = phase / 4 % 2;
         float minU = (float) (x) / 4.0F;
@@ -132,34 +150,11 @@ public class LunarNetherDimensionSpecialEffects extends DimensionSpecialEffects 
         float maxU = (float) (x + 1) / 4.0F;
         float maxV = (float) (y + 1) / 2.0F;
         RenderSystem.defaultBlendFunc();
-        RenderSystem.setShaderTexture(0, EARTH_LOCATION);
-        Matrix4f earthPose = poseStack.last().pose();
-        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-        builder.addVertex(earthPose, -earthSize, -100, earthSize).setUv(maxU, maxV);
-        builder.addVertex(earthPose, earthSize, -100, earthSize).setUv(minU, maxV);
-        builder.addVertex(earthPose, earthSize, -100, -earthSize).setUv(minU, minV);
-        builder.addVertex(earthPose, -earthSize, -100, -earthSize).setUv(maxU, minV);
-        BufferUploader.drawWithShader(builder.buildOrThrow());
-
-        int eclipsePhase = (level.getMoonPhase() + 4) % 8;
-        int eclipseX = eclipsePhase % 4;
-        int eclipseY = eclipsePhase / 4 % 2;
-        float eclipseMinU = (float) (eclipseX) / 4.0F;
-        float eclipseMinV = (float) (eclipseY) / 2.0F;
-        float eclipseMaxU = (float) (eclipseX + 1) / 4.0F;
-        float eclipseMaxV = (float) (eclipseY + 1) / 2.0F;
-        RenderSystem.setShaderTexture(0, EARTH_GLOW_LOCATION);
-        builder = tesselator.begin(VertexFormat.Mode.QUADS, DefaultVertexFormat.POSITION_TEX);
-        builder.addVertex(earthPose, -earthSize, -100, earthSize).setUv(eclipseMaxU, eclipseMaxV);
-        builder.addVertex(earthPose, earthSize, -100, earthSize).setUv(eclipseMinU, eclipseMaxV);
-        builder.addVertex(earthPose, earthSize, -100, -earthSize).setUv(eclipseMinU, eclipseMinV);
-        builder.addVertex(earthPose, -earthSize, -100, -earthSize).setUv(eclipseMaxU, eclipseMinV);
-        BufferUploader.drawWithShader(builder.buildOrThrow());
-
-        // pop earth position
-        poseStack.popPose();
-        poseStack.popPose();
-        return true;
+        RenderSystem.setShaderTexture(0, texture);
+        builder.addVertex(pose, -EARTH_SIZE, -100, EARTH_SIZE).setUv(maxU, maxV);
+        builder.addVertex(pose, EARTH_SIZE, -100, EARTH_SIZE).setUv(minU, maxV);
+        builder.addVertex(pose, EARTH_SIZE, -100, -EARTH_SIZE).setUv(minU, minV);
+        builder.addVertex(pose, -EARTH_SIZE, -100, -EARTH_SIZE).setUv(maxU, minV);
     }
 
     private static MeshData drawSky(BufferBuilder builder) {
