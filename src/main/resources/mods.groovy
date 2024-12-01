@@ -26,6 +26,9 @@ NeoForgeModsDotGroovy.make {
             mod("neoforge") {
                 versionRange = "${libs.versions.get("neoforge_range")}"
             }
+            mod("patched") {
+                versionRange = "${libs.versions.get("patched_range")}"
+            }
         }
     }
 
