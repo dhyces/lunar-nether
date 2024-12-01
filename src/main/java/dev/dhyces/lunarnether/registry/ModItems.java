@@ -5,6 +5,14 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CopperBulbBlock;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.TrapDoorBlock;
+import net.minecraft.world.level.block.WaterloggedTransparentBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -39,6 +47,12 @@ public class ModItems {
     public static final DeferredItem<Item> CUT_TITANIUM_STAIRS = registerBlockItem("cut_titanium_stairs", ModBlocks.CUT_TITANIUM_STAIRS);
     public static final DeferredItem<Item> CUT_TITANIUM_SLAB = registerBlockItem("cut_titanium_slab", ModBlocks.CUT_TITANIUM_SLAB);
 
+    public static final DeferredItem<Item> CHISELED_TITANIUM = registerBlockItem("chiseled_titanium", ModBlocks.CHISELED_TITANIUM);
+    public static final DeferredItem<Item> TITANIUM_DOOR = registerBlockItem("titanium_door", ModBlocks.TITANIUM_DOOR);
+    public static final DeferredItem<Item> TITANIUM_TRAPDOOR = registerBlockItem("titanium_trapdoor", ModBlocks.TITANIUM_TRAPDOOR);
+    public static final DeferredItem<Item> TITANIUM_GRATE = registerBlockItem("titanium_grate", ModBlocks.TITANIUM_GRATE);
+    public static final DeferredItem<Item> TITANIUM_BULB = registerBlockItem("titanium_bulb", ModBlocks.TITANIUM_BULB);
+
     public static final DeferredItem<Item> RAW_ILMENITE = REGISTRY.register("raw_ilmenite", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_INGOT = REGISTRY.register("titanium_ingot", () -> new Item(new Item.Properties()));
     public static final DeferredItem<Item> TITANIUM_NUGGET = REGISTRY.register("titanium_nugget", () -> new Item(new Item.Properties()));
@@ -46,8 +60,6 @@ public class ModItems {
     public static final DeferredItem<Item> ASTRALITH = registerBlockItem("astralith", ModBlocks.ASTRALITH);
 
     public static final DeferredItem<Item> LUNAR_CLOCK = REGISTRY.register("lunar_clock", () -> new Item(new Item.Properties()));
-
-
 
     private static DeferredItem<Item> registerBlockItem(String id, Supplier<Block> blockSupplier) {
         return REGISTRY.register(id, () -> new BlockItem(blockSupplier.get(), new Item.Properties()));

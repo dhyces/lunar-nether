@@ -31,6 +31,8 @@ public class ModCreativeModTabs {
             pOutput.accept(ModItems.CUT_POLISHED_LUNAR_STONE_SLAB);
             pOutput.accept(ModItems.CUT_POLISHED_LUNAR_STONE_WALL);
 
+            pOutput.accept(ModItems.ASTRALITH);
+
             pOutput.accept(ModItems.ILMENITE_ORE);
             pOutput.accept(ModItems.RAW_ILMENITE_BLOCK);
 
@@ -43,6 +45,12 @@ public class ModCreativeModTabs {
             pOutput.accept(ModItems.RAW_ILMENITE);
             pOutput.accept(ModItems.TITANIUM_INGOT);
             pOutput.accept(ModItems.TITANIUM_NUGGET);
+
+            pOutput.accept(ModItems.CHISELED_TITANIUM);
+            pOutput.accept(ModItems.TITANIUM_DOOR);
+            pOutput.accept(ModItems.TITANIUM_TRAPDOOR);
+            pOutput.accept(ModItems.TITANIUM_GRATE);
+            pOutput.accept(ModItems.TITANIUM_BULB);
 
             pOutput.accept(ModItems.LUNAR_CLOCK);
         })

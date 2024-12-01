@@ -1,14 +1,35 @@
 package dev.dhyces.lunarnether.registry;
 
 import dev.dhyces.lunarnether.LunarNether;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks REGISTRY = DeferredRegister.createBlocks(LunarNether.MODID);
+
+    public static final BlockSetType TITANIUM = BlockSetType.register(
+            new BlockSetType(
+                    "titanium",
+                    true,
+                    true,
+                    false,
+                    BlockSetType.PressurePlateSensitivity.EVERYTHING,
+                    SoundType.COPPER,
+                    SoundEvents.COPPER_DOOR_CLOSE,
+                    SoundEvents.COPPER_DOOR_OPEN,
+                    SoundEvents.COPPER_TRAPDOOR_CLOSE,
+                    SoundEvents.COPPER_TRAPDOOR_OPEN,
+                    SoundEvents.METAL_PRESSURE_PLATE_CLICK_OFF,
+                    SoundEvents.METAL_PRESSURE_PLATE_CLICK_ON,
+                    SoundEvents.STONE_BUTTON_CLICK_OFF,
+                    SoundEvents.STONE_BUTTON_CLICK_ON
+            )
+    );
 
     //Moondust
     public static final DeferredBlock<Block> LUNAR_DUST = REGISTRY.register("lunar_dust", () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.CLAY).strength(0.5f).sound(SoundType.SAND)));
@@ -42,6 +63,12 @@ public class ModBlocks {
     public static final DeferredBlock<Block> CUT_TITANIUM = REGISTRY.register("cut_titanium", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
     public static final DeferredBlock<Block> CUT_TITANIUM_STAIRS = REGISTRY.register("cut_titanium_stairs", () -> new StairBlock(CUT_TITANIUM.get().defaultBlockState(), BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
     public static final DeferredBlock<Block> CUT_TITANIUM_SLAB = REGISTRY.register("cut_titanium_slab", () -> new SlabBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+
+    public static final DeferredBlock<Block> CHISELED_TITANIUM = REGISTRY.register("chiseled_titanium", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final DeferredBlock<Block> TITANIUM_DOOR = REGISTRY.register("titanium_door", () -> new DoorBlock(TITANIUM, BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final DeferredBlock<Block> TITANIUM_TRAPDOOR = REGISTRY.register("titanium_trapdoor", () -> new TrapDoorBlock(TITANIUM, BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final DeferredBlock<Block> TITANIUM_GRATE = REGISTRY.register("titanium_grate", () -> new WaterloggedTransparentBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).isValidSpawn(Blocks::never).isRedstoneConductor(Blocks::never).isSuffocating(Blocks::never).isViewBlocking(Blocks::never).noOcclusion().strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
+    public static final DeferredBlock<Block> TITANIUM_BULB = REGISTRY.register("titanium_bulb", () -> new CopperBulbBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.NETHERITE_BLOCK).strength(3.0F, 16.0F).mapColor(MapColor.METAL)));
 
     //Astrolith
     public static final DeferredBlock<Block> ASTRALITH = REGISTRY.register("astralith", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.ANCIENT_DEBRIS).strength(30.0F, 600.0F).mapColor(MapColor.TERRACOTTA_CYAN)));
