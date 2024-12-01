@@ -148,7 +148,7 @@ public final class LunarNetherClient {
 
                 // render earth
                 float earthSize = 30f;
-                int phase = (int)(netherDayTime / 24000L % 8L + 8L) % 8;
+                int phase = (int)(level.dayTime() * 7 / 24000 % 8L);
                 int x = phase % 4;
                 int y = phase / 4 % 2;
                 float minU = (float) (x) / 4.0F;
@@ -165,7 +165,7 @@ public final class LunarNetherClient {
                 builder.vertex(earthPose, -earthSize, -100, -earthSize).uv(maxU, minV).endVertex();
                 tesselator.end();
 
-                int eclipsePhase = eclipsePhase(eclipse(), eclipseSlope() < 0);
+                int eclipsePhase = (level.getMoonPhase() + 4) % 8;
                 int eclipseX = eclipsePhase % 4;
                 int eclipseY = eclipsePhase / 4 % 2;
                 float eclipseMinU = (float) (eclipseX) / 4.0F;
@@ -276,26 +276,6 @@ public final class LunarNetherClient {
     public static double eclipse() {
         double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
         return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
-    }
-
-    public static double eclipseSlope() {
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 26875;
-        return (40d / 1000000000) * shiftedEclipse;
-    }
-
-    public static int eclipsePhase(double eclipseValue, boolean isSlopeNegative) {
-        // .75 1st phase, .60 - 2nd phase, .35 3rd phase, .142 4th
-        if (eclipseValue > 1.3) {
-            return 0;
-        } else if (eclipseValue > 0.7) {
-            return isSlopeNegative ? 1 : 7;
-        } else if (eclipseValue > 0.35) {
-            return isSlopeNegative ? 2 : 6;
-        } else if (eclipseValue > 0.142) {
-            return isSlopeNegative ? 3 : 5;
-        } else {
-            return 4;
-        }
     }
 
     public static float skyDarkness(double eclipseParabola) {
