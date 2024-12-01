@@ -15,5 +15,11 @@
     "op": "replace",
     "path": "/has_skylight",
     "value": true
+  },
+  {
+    "__comment": "Increase logical height to 255 (only used for portals iirc? so maybe this should remain vanilla)",
+    "op": "replace",
+    "path": "/logical_height",
+    "value": 255
   }
 ]
