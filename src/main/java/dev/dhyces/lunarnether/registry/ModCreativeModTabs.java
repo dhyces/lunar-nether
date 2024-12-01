@@ -34,6 +34,8 @@ public class ModCreativeModTabs {
             pOutput.accept(ModItems.CUT_POLISHED_LUNAR_STONE_STAIRS.get());
             pOutput.accept(ModItems.CUT_POLISHED_LUNAR_STONE_SLAB.get());
             pOutput.accept(ModItems.CUT_POLISHED_LUNAR_STONE_WALL.get());
+            
+            pOutput.accept(ModItems.ASTRALITH.get());
 
             pOutput.accept(ModItems.ILMENITE_ORE.get());
             pOutput.accept(ModItems.RAW_ILMENITE_BLOCK.get());
