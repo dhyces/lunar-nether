@@ -23,7 +23,7 @@
     "path": "/temp",
     "value": {
       "type": "minecraft:add",
-      "argument1": 0,
+      "argument1": null,
       "argument2": {
         "type": "minecraft:y_clamped_gradient",
         "from_y": 128,
@@ -57,7 +57,7 @@
         "from_value": 1,
         "to_value": 0.5
       },
-      "argument2": 0
+      "argument2": null
     }
   },
   {
