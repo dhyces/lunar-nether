@@ -143,7 +143,10 @@ public final class LunarNetherClient {
                 poseStack.pushPose();
                 //probably something to do with making it appear in the west instead of the north or south -90 = west.
                 poseStack.mulPose(Axis.YP.rotationDegrees(-90));
-                //how many degrees up from the west is it, 0 is below you.
+                //how many degrees up from the west is it, 0 is below you. 
+                //125 is the exact middle of the first moon phase because- 
+                //the sun is measured from the bottom of the sprite but the earth is measured from the middle, 
+                //resulting in a difference of 12.5 degrees from where it would be.
                 poseStack.mulPose(Axis.XP.rotationDegrees(125.0F));
 
                 // render earth
