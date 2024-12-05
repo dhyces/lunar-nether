@@ -277,7 +277,7 @@ public final class LunarNetherClient {
     public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
 
     public static double eclipse() {
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 14875;
+        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 12000;
         return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
     }
 
