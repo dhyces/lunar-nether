@@ -1,0 +1,40 @@
+{
+    "block.lunarnether.cut_polished_lunar_stone": "切制平滑月岩",
+    "block.lunarnether.cut_polished_lunar_stone_slab": "切制平滑月岩台阶",
+    "block.lunarnether.cut_polished_lunar_stone_stairs": "切制平滑月岩楼梯",
+    "block.lunarnether.cut_polished_lunar_stone_wall": "切制平滑月岩墙",
+    "block.lunarnether.lunar_dust": "月尘",
+    "block.lunarnether.lunar_stone": "月岩",
+    "block.lunarnether.lunar_stone_slab": "月岩台阶",
+    "block.lunarnether.lunar_stone_stairs": "月岩楼梯",
+    "block.lunarnether.lunar_stone_wall": "月岩墙",
+    "block.lunarnether.polished_lunar_stone": "平滑月岩",
+    "block.lunarnether.polished_lunar_stone_slab": "平滑月岩台阶",
+    "block.lunarnether.polished_lunar_stone_stairs": "平滑月岩楼梯",
+    "block.lunarnether.polished_lunar_stone_wall": "平滑月岩墙",
+    "block.lunarnether.raw_ilmenite_block": "钛铁矿块",
+    "block.lunarnether.ilmenite_ore": "钛铁矿石",
+    "block.lunarnether.titanium_block": "钛块",
+    "block.lunarnether.cut_titanium": "切制钛块",
+    "block.lunarnether.cut_titanium_slab": "切制钛台阶",
+    "block.lunarnether.cut_titanium_stairs": "切制钛楼梯",
+    "block.lunarnether.cut_titanium_wall": "切制钛墙",
+    "block.lunarnether.astralith": "星之岩",
+    
+    "item.lunarnether.raw_ilmenite": "钛铁矿", 
+    "item.lunarnether.titanium_ingot": "钛锭",
+    "item.lunarnether.titanium_nugget": "钛粒",
+    "item.lunarnether.lunar_clock": "月相钟",
+
+    "lunarnether.trim_material.ilmenite": "钛铁矿质",
+    "lunarnether.trim_material.titanium": "钛质", 
+    
+    "advancements.lunarnnether.moonlanding.title": "史蒂夫的一小步……",
+    "advancements.lunarnnether.moonlanding.description": "踏上月面",
+    "advancements.lunarnnether.moonlanding2.title": "……人类的一大步！",
+    "advancements.lunarnnether.moonlanding2.description": "在月球上来个大跳",
+  
+    "biome.lunarnether.outrocks": "月面岩层",
+    
+    "creativetab.moon_tab": "秘月下界"
+  }
