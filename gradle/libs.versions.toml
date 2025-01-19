@@ -27,7 +27,7 @@ minotaur = "2.+"
 neoforge = { module = "net.neoforged:neoforge", version.ref = "neoforge_release" }
 trimmed = { module = "maven.modrinth:trimmed", version.ref = "trimmed" }
 patched = { module = "maven.modrinth:patched", version.ref = "patched_release" }
-biomesquisher = { module = "maven.modrinth:biomesquisher", version.ref = "biomesquisher" }
+biomesquisher = { module = "dev.lukebemish:biomesquisher", version.ref = "biomesquisher" }
 
 jetbrains_annotations = { module = "org.jetbrains:annotations", version.ref = "jetbrains_annotations" }
 

@@ -102,7 +102,11 @@ repositories {
 dependencies {
     implementation libs.trimmed
     implementation libs.patched
-    implementation libs.biomesquisher
+    implementation(libs.biomesquisher.get()) {
+        capabilities {
+            requireCapability('dev.lukebemish:biomesquisher-neoforge')
+        }
+    }
 }
 
 processResources {
