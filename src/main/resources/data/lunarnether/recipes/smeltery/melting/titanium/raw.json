@@ -1,0 +1,19 @@
+{
+  "type": "tconstruct:ore_melting",
+  "byproducts": [
+    {
+      "amount": 90,
+      "fluid": "lunarnether:molten_titanium"
+    }
+  ],
+  "ingredient": {
+    "item": "lunarnether:raw_ilmenite"
+  },
+  "rate": "metal",
+  "result": {
+    "amount": 90,
+    "fluid": "tconstruct:molten_iron"
+  },
+  "temperature": 1200,
+  "time": 97
+}

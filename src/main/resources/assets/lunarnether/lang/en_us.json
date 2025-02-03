@@ -36,5 +36,11 @@
 
   "biome.lunarnether.outrocks": "Outrocks",
 
-  "creativetab.lunarnether.main": "Lunar Nether"
+  "creativetab.lunarnether.main": "Lunar Nether",
+
+
+  "material.lunarnether.titanium": "Titanium",
+  "material.lunarnether.titanium.flavor": "A Stellar metal",
+  "material.lunarnether.titanium.encyclopedia": "Grants increased mining and attack speed at the cost of 20% less effective repairs",
+  "material.lunarnether.titanium.armor": "Grants increased speed while using certain items at the cost of 20% less effective repairs"
 }

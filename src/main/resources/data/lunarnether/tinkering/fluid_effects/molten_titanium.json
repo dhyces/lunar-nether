@@ -1,0 +1,40 @@
+{
+  "fluid": {
+    "name": "tinkers_things:molten_hematite",
+    "amount": 10
+  },
+  "block_effects": [
+    {
+      "type": "tconstruct:place_block",
+      "block": "minecraft:fire"
+    }
+  ],
+  "entity_effects": [
+    {
+      "type": "tconstruct:fire",
+      "action": "set",
+      "time": 5
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:slow_falling",
+      "action": "set",
+      "time": 5,
+      "level": 1
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:regeneration",
+      "action": "set",
+      "time": 5,
+      "level": 1
+    },
+    {
+      "type": "tconstruct:mob_effect",
+      "effect": "minecraft:glowing",
+      "action": "set",
+      "time": 5,
+      "level": 1
+    }
+  ]
+}

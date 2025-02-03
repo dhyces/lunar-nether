@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "tag": "forge:ingots/titanium"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200,
+  "time": 72
+}

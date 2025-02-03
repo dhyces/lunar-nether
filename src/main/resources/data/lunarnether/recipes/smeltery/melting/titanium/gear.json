@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:gears/titanium"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:gears/titanium"
+  },
+  "result": {
+    "amount": 360,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200,
+  "time": 144
+}

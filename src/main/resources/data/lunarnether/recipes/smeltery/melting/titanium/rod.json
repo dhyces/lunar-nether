@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:rods/titanium"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:rods/titanium"
+  },
+  "result": {
+    "amount": 45,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200,
+  "time": 14
+}

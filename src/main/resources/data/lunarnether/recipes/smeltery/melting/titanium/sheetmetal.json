@@ -1,0 +1,21 @@
+{
+  "type": "tconstruct:melting",
+  "conditions": [
+    {
+      "type": "forge:not",
+      "value": {
+        "type": "forge:tag_empty",
+        "tag": "forge:sheetmetals/titanium"
+      }
+    }
+  ],
+  "ingredient": {
+    "tag": "forge:sheetmetals/titanium"
+  },
+  "result": {
+    "amount": 90,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200,
+  "time": 72
+}
