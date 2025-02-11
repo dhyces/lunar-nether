@@ -51,6 +51,7 @@ public class ModCreativeModTabs {
             pOutput.accept(ModItems.TITANIUM_NUGGET.get());
 
             pOutput.accept(ModItems.LUNAR_CLOCK.get());
+            pOutput.accept(ModItems.MOLTEN_TITANIUM_BUCKET.get());
         })
         .build());
 }

@@ -32,9 +32,11 @@ public class LunarNether {
 
         LunarNetherNetwork.register();
 
-        ModCreativeModTabs.CREATIVE_MODE_TABS.register(modBus);
+        ModFluids.Types.REGISTRY.register(modBus);
+        ModFluids.REGISTRY.register(modBus);
         ModBlocks.REGISTRY.register(modBus);
         ModItems.REGISTRY.register(modBus);
+        ModCreativeModTabs.CREATIVE_MODE_TABS.register(modBus);
         ModParticleTypes.REGISTRY.register(modBus);
         ModBiomeSources.REGISTRY.register(modBus);
         BiomeModifierTypes.REGISTER.register(modBus);
