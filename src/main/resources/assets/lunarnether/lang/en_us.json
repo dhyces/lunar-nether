@@ -40,7 +40,11 @@
 
 
   "material.lunarnether.titanium": "Titanium",
-  "material.lunarnether.titanium.flavor": "A Stellar metal",
-  "material.lunarnether.titanium.encyclopedia": "Grants increased mining and attack speed at the cost of 20% less effective repairs",
-  "material.lunarnether.titanium.armor": "Grants increased speed while using certain items at the cost of 20% less effective repairs"
+  "material.lunarnether.titanium.flavor": "Tough stuff",
+  "material.lunarnether.titanium.encyclopedia": "encyclopedia entry for titanium",
+  "material.lunarnether.titanium.armor": "armor entry for titanium", 
+
+  "modifier.lunarnether.refractory": "Refractory",
+  "modifier.lunarnether.refractory.flavor": "Tough to work with, tough to break",
+  "modifier.lunarnether.refractory.description": "Tool has boosted stats at the cost of 20% less effective repairs"
 }
