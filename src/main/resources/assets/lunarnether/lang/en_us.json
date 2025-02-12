@@ -41,8 +41,8 @@
 
   "material.lunarnether.titanium": "Titanium",
   "material.lunarnether.titanium.flavor": "Tough stuff",
-  "material.lunarnether.titanium.encyclopedia": "encyclopedia entry for titanium",
-  "material.lunarnether.titanium.armor": "armor entry for titanium", 
+  "material.lunarnether.titanium.encyclopedia": "Increases attack speed, mining speed, and draw speed by 5% but makes repairs 20% less effective",
+  "material.lunarnether.titanium.armor": "Increases protection by 2% but makes repairs 20% less effective", 
 
   "modifier.lunarnether.refractory": "Refractory",
   "modifier.lunarnether.refractory.flavor": "Tough to work with, tough to break",

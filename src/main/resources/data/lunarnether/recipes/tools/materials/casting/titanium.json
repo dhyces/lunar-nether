@@ -4,6 +4,6 @@
     "amount": 90,
     "tag": "forge:molten_titanium"
   },
-  "output": "tconstruct:titanium",
+  "output": "lunarnether:titanium",
   "temperature": 1200
 }
