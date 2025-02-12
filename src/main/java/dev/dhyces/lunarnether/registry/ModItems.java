@@ -3,6 +3,7 @@ package dev.dhyces.lunarnether.registry;
 import dev.dhyces.lunarnether.LunarNether;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -49,7 +50,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> LUNAR_CLOCK = REGISTRY.register("lunar_clock", () -> new Item(new Item.Properties()));
 
-
+    public static final RegistryObject<Item> MOLTEN_TITANIUM_BUCKET = REGISTRY.register("molten_titanium_bucket", () -> new BucketItem(ModFluids.MOLTEN_TITANIUM, new Item.Properties()));
 
     private static RegistryObject<Item> registerBlockItem(String id, Supplier<Block> blockSupplier) {
         return REGISTRY.register(id, () -> new BlockItem(blockSupplier.get(), new Item.Properties()));

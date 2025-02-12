@@ -48,4 +48,6 @@ public class ModBlocks {
 
     //Astrolith
     public static final RegistryObject<Block> ASTRALITH = REGISTRY.register("astralith", () -> new Block(BlockBehaviour.Properties.copy(Blocks.ANCIENT_DEBRIS).strength(30.0F, 600.0F).mapColor(MapColor.TERRACOTTA_CYAN)));
+
+    public static final RegistryObject<LiquidBlock> MOLTEN_TITANIUM = REGISTRY.register("molten_titanium", () -> new LiquidBlock(ModFluids.MOLTEN_TITANIUM, BlockBehaviour.Properties.copy(Blocks.LAVA).mapColor(MapColor.COLOR_LIGHT_GRAY)));
 }
