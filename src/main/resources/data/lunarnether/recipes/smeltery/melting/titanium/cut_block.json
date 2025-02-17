@@ -1,0 +1,12 @@
+{
+  "type": "tconstruct:melting",
+  "ingredient": {
+    "item": "lunarnether:cut_titanium"
+  },
+  "result": {
+    "amount": 200,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200,
+  "time": 108
+}
