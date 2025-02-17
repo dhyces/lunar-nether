@@ -2,7 +2,7 @@
   "carvers": {
 //these are never called because of a vanilla bug, but Ratatosk made a workaround in biome modifiers
   },
-  "downfall": 0.0,
+  "downfall": 0.9,
   "effects": {
     "additions_sound": {
       "sound": "minecraft:ambient.basalt_deltas.additions",
@@ -46,6 +46,7 @@
     [],
     []
   ],
+  //this SHOULD stop all rain and snow, but it doesn't???
   "has_precipitation": false,
   "spawn_costs": {},
   "spawners": {
@@ -58,6 +59,5 @@
     "water_ambient": [],
     "water_creature": []
   },
-  "temperature": 0.4, 
-  "temperature_modifier": "frozen"
+  "temperature": 0.05
 }
