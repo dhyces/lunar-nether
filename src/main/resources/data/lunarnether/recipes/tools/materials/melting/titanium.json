@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material_melting",
+  "input": "lunarnether:titanium",
+  "result": {
+    "amount": 90,
+    "fluid": "lunarnether:molten_titanium"
+  },
+  "temperature": 1200
+}
