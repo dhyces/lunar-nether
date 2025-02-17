@@ -38,6 +38,10 @@
 
   "creativetab.lunarnether.main": "Lunar Nether",
 
+  "block.lunarnether.molten_titanium_fluid": "Molten Titanium",
+  "fluid.lunarnether.molten_titanium": "Molten Titanium",
+  "fluid.lunarnether.flowing_molten_titanium": "Flowing Molten Titanium",
+  "item.lunarnether.molten_titanium_bucket": "Molten Titanium Bucket",
 
   "material.lunarnether.titanium": "Titanium",
   "material.lunarnether.titanium.flavor": "Tough stuff",
