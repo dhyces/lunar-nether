@@ -3,7 +3,7 @@
   "modules": [
     {
       "type": "tconstruct:repair",
-      "each_level": -0.50
+      "each_level": -0.20
     },
     {
       "type": "tconstruct:stat_boost",
