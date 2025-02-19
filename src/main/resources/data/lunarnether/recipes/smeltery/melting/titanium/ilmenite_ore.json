@@ -1,8 +1,8 @@
 {
-  "type": "tconstruct:ore_melting",
+  "type": "tconstruct:melting",
   "byproducts": [
     {
-      "amount": 270,
+      "amount": 180,
       "fluid": "lunarnether:molten_titanium"
     }
   ],
@@ -11,7 +11,7 @@
   },
   "rate": "metal",
   "result": {
-    "amount": 90,
+    "amount": 180,
     "fluid": "tconstruct:molten_iron"
   },
   "temperature": 1200,
