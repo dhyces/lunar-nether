@@ -1,9 +1,10 @@
 {
-  "type": "tconstruct:melting",
+  "type": "tconstruct:ore_melting",
   "byproducts": [
     {
       "amount": 180,
-      "fluid": "lunarnether:molten_titanium"
+      "fluid": "lunarnether:molten_titanium",
+      "rate": "none"
     }
   ],
   "ingredient": {
