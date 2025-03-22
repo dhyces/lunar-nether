@@ -3,7 +3,7 @@
   "modules": [
     {
       "type": "tconstruct:repair",
-      "each_level": -0.20
+      "each_level": -0.25
     },
     {
       "type": "tconstruct:stat_boost",
@@ -26,7 +26,7 @@
     {
       "type": "tconstruct:protection",
       "damage_source": "mantle:can_protect",
-      "each_level": 0.5,
+      "each_level": 0.625,
       "tool": {
         "type": "mantle:tag",
         "tag": "tconstruct:modifiable/armor"
