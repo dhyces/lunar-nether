@@ -1,0 +1,9 @@
+{
+  "type": "tconstruct:material",
+  "ingredient": {
+    "item": "lunarnether:lunar_stone"
+  },
+  "material": "tconstruct:whitestone",
+  "needed": 2,
+  "value": 1
+}
