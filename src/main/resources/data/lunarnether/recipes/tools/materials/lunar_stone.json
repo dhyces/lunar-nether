@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "lunarnether:lunar_stone"
   },
-  "material": "tconstruct:whitestone#tin",
+  "material": "tconstruct:whitestone#zinc",
   "needed": 2,
   "value": 1
 }
