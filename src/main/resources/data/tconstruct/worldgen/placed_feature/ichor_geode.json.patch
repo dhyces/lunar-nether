@@ -1,0 +1,17 @@
+[
+    {
+        "op": "test"
+        "type": "patched:mod_loaded"
+        "value": "tconstruct"
+    },
+    {
+        "op": "replace",
+        "path": "/placement/2/height/min_inclusive/below_top",
+        "value": 112
+    },
+    {
+        "op": "replace",
+        "path": "/placement/2/height/max_inclusive/below_top",
+        "value": 80
+    }
+]
