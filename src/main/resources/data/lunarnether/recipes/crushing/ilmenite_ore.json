@@ -8,20 +8,20 @@
   "processingTime": 350,
   "results": [
     {
-      "item": "lunarnether:ilmenite",
+      "item": "lunarnether:raw_ilmenite",
       "count": 2
     },
     {
       "chance": 0.75,
-      "item": "lunarnether:ilmenite"
+      "item": "lunarnether:raw_ilmenite"
     },
         {
       "chance": 0.75,
-      "item": "lunarnether:ilmenite"
+      "item": "lunarnether:raw_ilmenite"
     },
         {
       "chance": 0.75,
-      "item": "lunarnether:ilmenite"
+      "item": "lunarnether:raw_ilmenite"
     },
     {
       "chance": 0.75,
