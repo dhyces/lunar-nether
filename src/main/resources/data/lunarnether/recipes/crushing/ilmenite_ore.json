@@ -1,0 +1,35 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "lunarnether:ilmenite_ore"
+    }
+  ],
+  "processingTime": 350,
+  "results": [
+    {
+      "item": "lunarnether:ilmenite",
+      "count": 2
+    },
+    {
+      "chance": 0.75,
+      "item": "lunarnether:ilmenite"
+    },
+        {
+      "chance": 0.75,
+      "item": "lunarnether:ilmenite"
+    },
+        {
+      "chance": 0.75,
+      "item": "lunarnether:ilmenite"
+    },
+    {
+      "chance": 0.75,
+      "item": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "item": "lunarnether:lunar_stone"
+    }
+  ]
+}

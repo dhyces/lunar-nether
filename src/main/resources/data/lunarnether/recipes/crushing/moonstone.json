@@ -1,0 +1,14 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "lunarnether:lunar_stone"
+    }
+  ],
+  "processingTime": 350,
+  "results": [
+    {
+      "item": "lunarnether:lunar_dust"
+    }
+  ]
+}
