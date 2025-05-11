@@ -1,0 +1,27 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "lunarnether:astralith"
+    }
+  ],
+  "processingTime": 400,
+  "results": [
+    {
+      "chance": 0.015625,
+      "item": "lunarnether:ilmenite"
+    },
+    {
+      "chance": 0.015625,
+      "item": "minecraft:diamond"
+    },
+    {
+      "chance": 0.125,
+      "item": "create:experience_nugget"
+    },
+    {
+      "chance": 0.125,
+      "item": "lunarnether:astralith"
+    }
+  ]
+}
