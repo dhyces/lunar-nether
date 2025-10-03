@@ -25,9 +25,9 @@
       "options": {
         "type": "minecraft:white_ash"
       },
-      "probability": 0.025
+      "probability": 0.01
     },
-    "fog_color": 0,
+    "fog_color": 4210752,
     "sky_color": 0,
     "water_color": 4159204,
     "water_fog_color": 329011
