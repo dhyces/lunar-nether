@@ -10,7 +10,7 @@
 	"day_max_visible_size": 0,
 	
 	"stars_always_visible": true,
-	"stars_ignore_fog": false,
+	"stars_ignore_fog": true,
 	
 	"shooting_star":
 	{
