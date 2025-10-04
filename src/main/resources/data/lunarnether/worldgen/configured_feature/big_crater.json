@@ -58,15 +58,15 @@
       }
     },
     "crack": {
-      "base_crack_size": 0,
-      "crack_point_offset": 0,
-      "generate_crack_chance": 0
+      "base_crack_size": 1,
+      "crack_point_offset": 1,
+      "generate_crack_chance": 0.25
     },
     "distribution_points": 2,
     "invalid_blocks_threshold": 63,
     "layers": {
       "filling": 2,
-      "inner_layer": 0,
+      "inner_layer": 2,
       "middle_layer": 3,
       "outer_layer": 7
     },
