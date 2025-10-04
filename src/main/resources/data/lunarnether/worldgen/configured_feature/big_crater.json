@@ -62,12 +62,12 @@
       "crack_point_offset": 0,
       "generate_crack_chance": 0
     },
-    "distribution_points": 4,
+    "distribution_points": 2,
     "invalid_blocks_threshold": 63,
     "layers": {
       "filling": 2,
-      "inner_layer": 2,
-      "middle_layer": 5,
+      "inner_layer": 0,
+      "middle_layer": 3,
       "outer_layer": 7
     },
     "max_gen_offset": 16,
