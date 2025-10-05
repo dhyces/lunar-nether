@@ -93,6 +93,8 @@ dependencies {
         jarJar.ranged(it, "[0.4.1,)")
     }
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+
+    implementation fg.deobf("maven.modrinth:stellarview:k9iMuxYs")
 }
 
 mixin {
