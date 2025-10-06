@@ -66,8 +66,8 @@
     "invalid_blocks_threshold": 63,
     "layers": {
       "filling": 2,
-      "inner_layer": 2,
-      "middle_layer": 3,
+      "inner_layer": 3,
+      "middle_layer": 4,
       "outer_layer": 7
     },
     "max_gen_offset": 16,
@@ -76,8 +76,8 @@
     "outer_wall_distance": {
       "type": "minecraft:uniform",
       "value": {
-        "max_inclusive": 7,
-        "min_inclusive": 5
+        "max_inclusive": 9,
+        "min_inclusive": 7
       }
     },
     "placements_require_layer0_alternate": true,
