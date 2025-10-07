@@ -24,9 +24,9 @@
       "stat": "tconstruct:draw_speed"
     },
     {
-      "type": "tconstruct:protection",
-      "damage_source": "mantle:can_protect",
-      "each_level": 0.625,
+      "type": "tconstruct:modifier_slot",
+      "each_level": 1,
+      "name": "defense",
       "tool": {
         "type": "mantle:tag",
         "tag": "tconstruct:modifiable/armor"
