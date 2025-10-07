@@ -33,10 +33,16 @@ description='''${mod_description}'''
     side="BOTH"
 [[dependencies.${mod_id}]]
     modId="stellarview"
-    mandatory=false
+    mandatory=true
     versionRange="[0.5.0,0.6.0)"
     ordering="AFTER"
     side="CLIENT"
+[[dependencies.${mod_id}]]
+    modId="tconstruct"
+    mandatory=false
+    versionRange="[3.10.2.92,)"
+    ordering="AFTER"
+    side="BOTH"
 
 [modproperties.${mod_id}.patched]
     format_version = 1 # This tells Patched we want to patch things.
