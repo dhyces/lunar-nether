@@ -94,7 +94,7 @@ dependencies {
     }
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
-    implementation fg.deobf("maven.modrinth:stellarview:k9iMuxYs")
+    implementation fg.deobf("maven.modrinth:stellarview:oLyZlWcr")
 }
 
 mixin {
