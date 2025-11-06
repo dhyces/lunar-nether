@@ -58,7 +58,8 @@ public final class LunarNetherClient {
     }
 
     public static float skyDarkness(double eclipseParabola) {
-        double decimal = Mth.frac(LunarNetherClient.netherDayTime / (float)LENGTH_OF_LUNAR_DAY - 0.25);
+        //the constant at the end of the next line does something related to the "epoch" I think. It used to be 0.25
+        double decimal = Mth.frac(LunarNetherClient.netherDayTime / (float)LENGTH_OF_LUNAR_DAY - 0.0);
         double d1 = 0.5 - Math.cos(decimal * Math.PI) / 2;
         return (float)(decimal * 2 + Math.min(d1, eclipseParabola)) / 3.0F;
     }
