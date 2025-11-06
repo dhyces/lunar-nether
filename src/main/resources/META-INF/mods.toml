@@ -35,7 +35,7 @@ description='''${mod_description}'''
     modId="stellarview"
     mandatory=true
     versionRange="[0.5.0,0.6.0)"
-    ordering="AFTER"
+    ordering="BEFORE"
     side="CLIENT"
 [[dependencies.${mod_id}]]
     modId="tconstruct"

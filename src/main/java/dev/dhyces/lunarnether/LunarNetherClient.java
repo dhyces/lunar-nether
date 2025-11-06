@@ -14,6 +14,7 @@ import net.minecraft.world.level.dimension.BuiltinDimensionTypes;
 import net.minecraftforge.client.event.RegisterDimensionSpecialEffectsEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import java.lang.Math;
@@ -45,7 +46,8 @@ public final class LunarNetherClient {
     }
 
     private static void netherSky(final RegisterDimensionSpecialEffectsEvent event) {
-        event.register(BuiltinDimensionTypes.NETHER_EFFECTS, new LunarNetherSpecialEffects());
+        if(!ModList.get().isLoaded("stellarview"))
+            event.register(BuiltinDimensionTypes.NETHER_EFFECTS, new LunarNetherSpecialEffects());
     }
 
     public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
