@@ -54,7 +54,8 @@ public final class LunarNetherClient {
 
     public static double eclipse() {
         //this used to be use to make the sky darken during eclipses but I don't know how
-        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 12000;
+        //the constant at the end used to be  12000
+        double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 0;
         return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
     }
 
