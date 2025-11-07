@@ -53,8 +53,10 @@ public final class LunarNetherClient {
     public static final int LENGTH_OF_LUNAR_DAY = 24000*8;
 
     public static double eclipse() {
+        //this used to be use to make the sky darken during eclipses but I don't know how
         double shiftedEclipse = LunarNetherClient.netherDayTime % LENGTH_OF_LUNAR_DAY - 12000;
-        return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
+        //return (20d / 1000000000) * (shiftedEclipse * shiftedEclipse);
+        return 0;
     }
 
     public static float skyDarkness(double eclipseParabola) {
