@@ -49,5 +49,8 @@
 
   "modifier.lunarnether.refractory": "Refractory",
   "modifier.lunarnether.refractory.flavor": "Tough to work with, tough to break",
-  "modifier.lunarnether.refractory.description": "Tool has boosted stats at the cost of 25% less effective repairs"
+  "modifier.lunarnether.refractory.description": "Tool has boosted stats at the cost of 25% less effective repairs",
+
+  "fluid.lunarnether.molten_titanium": "Molten Titanium",
+  "fluid.lunarnether.molten_titanium": "Full of lunar magic."
 }
