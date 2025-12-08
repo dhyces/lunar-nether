@@ -1,24 +1,35 @@
 {
 	"view_center": "stellarview:moon/milky_way/sol/earth/luna",
-	
-	"axis_rotation": { "x_axis": 0, "y_axis": -90, "z_axis": -90 },
+	"axis_rotation": {
+		"x_axis": 0,
+		"y_axis": -90,
+		"z_axis": -90
+	},
 	"rotation_period": 0,
 	"rotation_tick_offset": 12000,
+	"orbit_info": {
+		"epoch_mean_anomaly": 90
+	},
 	
-	"day_blending": { "max_brightness": 1, "min_visible_size": 0, "max_visible_size": 0 },
-	"sun_day_blending": { "max_brightness": 1, "min_visible_size": 0, "max_visible_size": 0 },
-	
-	"stars":
-	{
+	"day_blending": {
+		"max_brightness": 1,
+		"min_visible_size": 0,
+		"max_visible_size": 0
+	},
+	"sun_day_blending": {
+		"max_brightness": 1,
+		"min_visible_size": 0,
+		"max_visible_size": 0
+	},
+	"stars": {
 		"during_day": true,
 		"ignore_rain": true
 	},
-	
-	"fog":
-	{
-		"height":
-		[
-			{ "max": 128 }
+	"fog": {
+		"height": [
+			{
+				"max": 128
+			}
 		]
 	}
 }
