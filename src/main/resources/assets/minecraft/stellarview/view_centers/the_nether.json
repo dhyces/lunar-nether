@@ -8,7 +8,7 @@
 	"rotation_period": 0,
 	"rotation_tick_offset": 12000,
 	"orbit_info": {
-		"epoch_mean_anomaly": 90
+		"epoch_mean_anomaly": 112.5
 	},
 	
 	"day_blending": {
