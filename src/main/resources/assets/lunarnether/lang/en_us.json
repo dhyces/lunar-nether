@@ -52,5 +52,5 @@
   "modifier.lunarnether.refractory.description": "Tool has boosted stats at the cost of 25% less effective repairs",
 
   "fluid.lunarnether.molten_titanium": "Molten Titanium",
-  "fluid.lunarnether.molten_titanium": "Full of lunar magic."
+  "fluid.lunarnether.molten_titanium.fluid_effect": "Full of lunar magic."
 }
